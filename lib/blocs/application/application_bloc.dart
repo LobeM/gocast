@@ -28,6 +28,8 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
       yield* _mapSetupApplicationEventToState();
     } else if (event is SettingsLoadedApplicaionEvent) {
       yield* _mapSettingsLoadedApplicationEventToState();
+    } else if (event is OnboardingCompletedApplicationEvent) {
+      yield* _mapCompletedOnboardingApplicationEventToState();
     } else if (event is LifecycleChangedApplicaionEvent) {
       yield* _mapLifecycleChangedApplicationEventToState(event);
     } else if (event is ChangeRequestedLanguageApplicationEvent) {
@@ -75,8 +77,8 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
         getIt.get<AppPreferences>().getString(PreferenceKey.appVersion);
 
     /// Is the user onboarded already?
-    // getIt.get<AppGlobals>().isUserOnboarded =
-    //     getIt.get<AppPreferences>().containsKey(PreferenceKey.isOnboarded);
+    getIt.get<AppGlobals>().isUserOnboarded =
+        getIt.get<AppPreferences>().containsKey(PreferenceKey.isOnboarded);
 
     // New install/version?
     if (oldVersion != kAppVersion) {
@@ -87,7 +89,9 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
       // Clear logged in user info, and force to re-login.
       // await getIt.get<AppPreferences>().remove(PreferenceKey.user);
     } else {
-      authBloc.add(ProfileLoadedAuthEvent());
+      if (getIt.get<AppGlobals>().isUserOnboarded) {
+        authBloc.add(ProfileLoadedAuthEvent());
+      }
     }
   }
 
@@ -97,6 +101,14 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
     // Load any settings
 
     yield LoadSettingsSuccessApplicationState();
+  }
+
+  Stream<ApplicationState>
+      _mapCompletedOnboardingApplicationEventToState() async* {
+    // Save the info about completed onboarding process to shared preferences.
+    await getIt.get<AppPreferences>().setBool(PreferenceKey.isOnboarded, true);
+
+    getIt.get<AppGlobals>().isUserOnboarded = true;
   }
 
   Stream<ApplicationState> _mapLifecycleChangedApplicationEventToState(

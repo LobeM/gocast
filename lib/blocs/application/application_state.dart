@@ -12,6 +12,8 @@ class SetupInProgressApplicationState extends ApplicationState {}
 
 class SetupSuccessApplicationState extends ApplicationState {}
 
+class OnboardingInProgressApplicationState extends ApplicationState {}
+
 class LoadSettingsInProgressApplicationState extends ApplicationState {}
 
 class LoadSettingsSuccessApplicationState extends ApplicationState {}

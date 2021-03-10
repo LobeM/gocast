@@ -9,6 +9,7 @@ import 'package:gocast/configs/app_theme.dart';
 import 'package:gocast/configs/routes.dart';
 import 'package:gocast/generated/l10n.dart';
 import 'package:gocast/main.dart';
+import 'package:gocast/screens/onboarding.dart';
 import 'package:gocast/screens/splash.dart';
 import 'package:gocast/utils/localization.dart';
 import 'package:gocast/widgets/bottom_navigation.dart';
@@ -65,8 +66,10 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
   /// to the foreground.
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    /// Notify ApplicationBloc with a new [LifecycleChangedApplicationEvent].
-    _applicationBloc.add(LifecycleChangedApplicaionEvent(state: state));
+    if (getIt.get<AppGlobals>().isUserOnboarded) {
+      /// Notify ApplicationBloc with a new [LifecycleChangedApplicationEvent].
+      _applicationBloc.add(LifecycleChangedApplicaionEvent(state: state));
+    }
 
     super.didChangeAppLifecycleState(state);
   }
@@ -97,7 +100,9 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
           if (appState is SetupSuccessApplicationState ||
               appState is UpdateLanguageSuccessApplicationState ||
               appState is LifecycleChangeInProgressApplicationState) {
-            homeWidget = BottomNavigation();
+            homeWidget = getIt.get<AppGlobals>().isUserOnboarded
+                ? BottomNavigation()
+                : OnboardingScreen();
           } else {
             homeWidget = SplashScreen();
           }
