@@ -6,11 +6,8 @@ import 'package:get_it/get_it.dart';
 import 'package:gocast/blocs/app_observer.dart';
 import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/configs/app_theme.dart';
-import 'package:gocast/configs/constants.dart';
 import 'package:gocast/main_app.dart';
 import 'package:gocast/utils/app_preferences.dart';
-import 'package:logging/logging.dart';
-import 'package:logging_appenders/logging_appenders.dart';
 
 GetIt getIt = GetIt.instance;
 
@@ -38,17 +35,18 @@ void main() async {
 
 /// Remote logging with Flutter on the logz.io ELK stack.
 void createLogger() {
-  if (!kReleaseMode || kLogzioToken.isEmpty) {
+  // if (!kReleaseMode || kLogzioToken.isEmpty) {
+  if (!kReleaseMode) {
     return;
   }
 
-  Logger.root.level = Level.ALL;
+  // Logger.root.level = Level.ALL;
 
-  LogzIoApiAppender(
-    apiToken: kLogzioToken,
-    url: kLogzioUrl,
-    labels: <String, String>{'version': kAppVersion},
-  ).attachToLogger(Logger.root);
+  // LogzIoApiAppender(
+  //   apiToken: kLogzioToken,
+  //   url: kLogzioUrl,
+  //   labels: <String, String>{'version': kAppVersion},
+  // ).attachToLogger(Logger.root);
 }
 
 /// Registers all the singletons we need by passing a factory function.

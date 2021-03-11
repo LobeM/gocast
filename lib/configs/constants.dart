@@ -25,6 +25,8 @@ const double kTimelineDateSize = 88.0;
 
 // Colors
 const Color kPrimaryColor = Colors.blue;
+const Color kBlueGrey = Colors.blueGrey;
+const Color kGrey = Colors.grey;
 const Color kWhite = Color(0xFFFFFFFF);
 const Color kBlack = Color(0xFF000000);
 const Color kGold = Color(0xFFF3C952);
@@ -39,6 +41,11 @@ const double kPaddingL = 40.0;
 const double kCircleAvatarSizeRadiusAppBar = 20.0;
 const double kCircleAvatarSizeRadiusSmall = 24.0;
 const double kCircleAvatarSizeRadiusLarge = 48.0;
+
+// Animations
+const Duration kRippleAnimationDuration = Duration(milliseconds: 600);
+const Duration kButtonAnimationDuration = Duration(milliseconds: 200);
+const Duration kPaymentCardAnimationDuration = Duration(milliseconds: 500);
 
 /// Minimal query string length.
 const int kMinimalNameQueryLength = 3;
@@ -72,8 +79,12 @@ const String kLogzioUrl = 'https://listener-uk.logz.io:8071/';
 
 /// Assets images
 class AssetsImages {
-  static const String onboardingWelcome =
-      'assets/images/onboarding/welcome.png';
+  static const String onboardingAudioPlayer =
+      'assets/images/onboarding/audio_player.svg';
+  static const String onboardingPodcast =
+      'assets/images/onboarding/podcast.svg';
+  static const String onboardingWalkInTheCity =
+      'assets/images/onboarding/walk_in_the_city.svg';
 }
 
 /// Preference keys used to store/read values using [AppPreferences].

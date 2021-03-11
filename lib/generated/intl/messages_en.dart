@@ -21,6 +21,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-
+    "onboardingBtnGetStarted" : MessageLookupByLibrary.simpleMessage("Get Started"),
+    "onboardingBtnSkip" : MessageLookupByLibrary.simpleMessage("Skip"),
+    "onboardingPage1Body" : MessageLookupByLibrary.simpleMessage("With over 95 million volumes of spoken audio content we have something for everyone."),
+    "onboardingPage1Title" : MessageLookupByLibrary.simpleMessage("Access endless hours of free podcasts"),
+    "onboardingPage2Body" : MessageLookupByLibrary.simpleMessage("Enjoy your favourite podcast anywhere by downloading them to play offline and on the go!"),
+    "onboardingPage2Title" : MessageLookupByLibrary.simpleMessage("Listen offline"),
+    "onboardingPage3Body" : MessageLookupByLibrary.simpleMessage("Connect with hosts and creators you love with this easy to use app."),
+    "onboardingPage3Title" : MessageLookupByLibrary.simpleMessage("More than listening")
   };
 }

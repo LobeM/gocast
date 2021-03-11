@@ -1,1 +1,11 @@
-{}
+{
+    "@@locale": "en",
+    "onboardingBtnSkip": "Skip",
+    "onboardingBtnGetStarted": "Get Started",
+    "onboardingPage1Title": "Access endless hours of free podcasts",
+    "onboardingPage1Body": "With over 95 million volumes of spoken audio content we have something for everyone.",
+    "onboardingPage2Title": "Listen offline",
+    "onboardingPage2Body": "Enjoy your favourite podcast anywhere by downloading them to play offline and on the go!",
+    "onboardingPage3Title": "More than listening",
+    "onboardingPage3Body": "Connect with hosts and creators you love with this easy to use app."
+}
