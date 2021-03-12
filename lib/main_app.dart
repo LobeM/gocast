@@ -49,7 +49,14 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
     );
   }
 
-  void _initGlobalKeys() {}
+  void _initGlobalKeys() {
+    getIt.get<AppGlobals>().globalKeyBottomBar =
+        GlobalKey(debugLabel: 'bottom_bar');
+    getIt.get<AppGlobals>().globalKeyHomeScreen =
+        GlobalKey(debugLabel: 'home_screen');
+    getIt.get<AppGlobals>().globalKeyExploreScreen =
+        GlobalKey(debugLabel: 'explore_screen');
+  }
 
   @override
   void dispose() {

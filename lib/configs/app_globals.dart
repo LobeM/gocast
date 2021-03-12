@@ -1,6 +1,7 @@
 // Class to store runtime global settings.
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:gocast/configs/app_theme.dart';
 import 'package:gocast/data/models/user_model.dart';
@@ -15,6 +16,18 @@ class AppGlobals {
 
   // Singleton instance
   static final AppGlobals instance = AppGlobals._();
+
+  /// [GlobalKey] for our bottom bar.
+  GlobalKey globalKeyBottomBar;
+
+  /// [GlobalKey] for our [HomeScreen].
+  GlobalKey globalKeyHomeScreen;
+
+  /// [GlobalKey] for our [ExploreScreen].
+  GlobalKey globalKeyExploreScreen;
+
+  /// [GlobalKey] for tab bar in [ExploreScreen].
+  GlobalKey globalKeyExploreTabs;
 
   /// Logged in user data.
   UserModel user;

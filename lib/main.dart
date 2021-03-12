@@ -8,6 +8,7 @@ import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/configs/app_theme.dart';
 import 'package:gocast/main_app.dart';
 import 'package:gocast/utils/app_preferences.dart';
+import 'package:gocast/utils/bottom_bar_items.dart';
 
 GetIt getIt = GetIt.instance;
 
@@ -53,6 +54,7 @@ void createLogger() {
 void initServiceLocator() async {
   getIt.registerLazySingleton<AppTheme>(() => AppTheme());
   getIt.registerLazySingleton<AppGlobals>(() => AppGlobals());
+  getIt.registerLazySingleton<BottomBarItems>(() => BottomBarItems());
 
   final AppPreferences appPreferencesInstance =
       await AppPreferences.getInstance();
