@@ -19,8 +19,14 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static m0(name) => "Hi ${name}!";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "exploreHeaderSubtitle" : MessageLookupByLibrary.simpleMessage("Listen to your favourite podcasts"),
+    "explorePlaceholderSearch" : MessageLookupByLibrary.simpleMessage("Search for podcasts"),
+    "exploreTitleGuest" : MessageLookupByLibrary.simpleMessage("Explore"),
+    "exploreTitleUser" : m0,
     "onboardingBtnGetStarted" : MessageLookupByLibrary.simpleMessage("Get Started"),
     "onboardingBtnSkip" : MessageLookupByLibrary.simpleMessage("Skip"),
     "onboardingPage1Body" : MessageLookupByLibrary.simpleMessage("With over 95 million volumes of spoken audio content we have something for everyone."),

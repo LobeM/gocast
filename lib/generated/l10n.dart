@@ -35,6 +35,46 @@ class L10n {
     return Localizations.of<L10n>(context, L10n);
   }
 
+  /// `Hi {name}!`
+  String exploreTitleUser(Object name) {
+    return Intl.message(
+      'Hi $name!',
+      name: 'exploreTitleUser',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `Explore`
+  String get exploreTitleGuest {
+    return Intl.message(
+      'Explore',
+      name: 'exploreTitleGuest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Listen to your favourite podcasts`
+  String get exploreHeaderSubtitle {
+    return Intl.message(
+      'Listen to your favourite podcasts',
+      name: 'exploreHeaderSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search for podcasts`
+  String get explorePlaceholderSearch {
+    return Intl.message(
+      'Search for podcasts',
+      name: 'explorePlaceholderSearch',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Skip`
   String get onboardingBtnSkip {
     return Intl.message(
