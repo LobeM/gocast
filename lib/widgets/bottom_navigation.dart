@@ -5,12 +5,12 @@ import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/data/models/bottom_bar_item_model.dart';
 import 'package:gocast/main.dart';
 import 'package:gocast/screens/explore/explore.dart';
-import 'package:gocast/screens/home/home.dart';
 import 'package:gocast/screens/library/library.dart';
 import 'package:gocast/screens/library/library_welcome.dart';
 import 'package:gocast/screens/profile/profile.dart';
 import 'package:gocast/screens/sign_in.dart';
 import 'package:gocast/utils/bottom_bar_items.dart';
+import 'package:gocast/utils/string.dart';
 
 class BottomNavigation extends StatefulWidget {
   @override
@@ -27,10 +27,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
   /// Creates the bottom bar items.
   List<BottomNavigationBarItem> _bottomBarItems(BuildContext context) {
     getIt.get<BottomBarItems>().clear();
-
-    getIt
-        .get<BottomBarItems>()
-        .add(const BottomBarItemModel(id: 'home', icon: Icons.home));
     getIt
         .get<BottomBarItems>()
         .add(const BottomBarItemModel(id: 'explore', icon: Icons.explore));
@@ -48,7 +44,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         in getIt.get<BottomBarItems>().getItems()) {
       bottomBarItems.add(BottomNavigationBarItem(
         icon: Icon(item.icon),
-        label: '',
+        label: item.id.toTitleCases(),
       ));
     }
 
@@ -63,7 +59,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
           return IndexedStack(
             index: _selectedIndex,
             children: [
-              HomeScreen(key: getIt.get<AppGlobals>().globalKeyHomeScreen),
               ExploreScreen(
                   key: getIt.get<AppGlobals>().globalKeyExploreScreen),
               if (getIt.get<AppGlobals>().user != null)
@@ -79,8 +74,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
         },
       ),
       bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
         key: getIt.get<AppGlobals>().globalKeyBottomBar,
         items: _bottomBarItems(context),
         currentIndex: _selectedIndex,
