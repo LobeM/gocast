@@ -23,7 +23,7 @@ class ExploreHeader extends SliverPersistentHeaderDelegate {
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: <Widget>[
-          // TODO: add image header
+          // add image header
           Padding(
             padding: const EdgeInsets.only(
               bottom: kPaddingL,
@@ -120,17 +120,22 @@ class ExploreHeader extends SliverPersistentHeaderDelegate {
     );
   }
 
+  /// The size of the header when it is not shrinking at the top of the
+  /// viewport.
+  ///
+  /// This must return a value equal to or greater than [minExtent].
   @override
-  // TODO: implement maxExtent
-  double get maxExtent => throw UnimplementedError();
+  double get maxExtent => expandedHeight;
 
+  /// The smallest size to allow the header to reach, when it shrinks at the
+  /// start of the viewport.
+  ///
+  /// This must return a value equal to or less than [maxExtent].
   @override
-  // TODO: implement minExtent
-  double get minExtent => throw UnimplementedError();
+  double get minExtent => 158;
 
+  /// Whether this delegate is meaningfully different from the old delegate.
   @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    // TODO: implement shouldRebuild
-    throw UnimplementedError();
-  }
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
+      true;
 }
