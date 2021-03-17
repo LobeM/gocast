@@ -51,6 +51,8 @@ dependencies:
   sprintf: ^5.0.0
   # Plugin to detect whether the current device is an emulator or a simulator.
   flutter_is_emulator: ^1.0.0
+  # A package provides an easy way to add shimmer effect in Flutter project.
+  shimmer: ^1.1.2
   # Being able to compare objects in Dart often involves having to override the == operator as well as hashCode.
   equatable:
   # Draw SVG (and some Android VectorDrawable (XML)) files on a Flutter Widget.

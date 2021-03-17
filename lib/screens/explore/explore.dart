@@ -9,7 +9,29 @@ class ExploreScreen extends StatefulWidget {
   _ExploreScreenState createState() => _ExploreScreenState();
 }
 
-class _ExploreScreenState extends State<ExploreScreen> {
+class _ExploreScreenState extends State<ExploreScreen>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+  bool _isDataLoaded = false;
+
+  Widget _showSubscribedPodcasts() {}
+  Widget _showTopPodcasts() {}
+  Widget _showTrendingPodcasts() {}
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(vsync: this);
+    // Load data
+    setState(() => _isDataLoaded = true);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
