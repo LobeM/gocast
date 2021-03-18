@@ -47,7 +47,10 @@ class _PodcastsCarouselState extends State<PodcastsCarousel> {
                             const EdgeInsetsDirectional.only(end: kPaddingS),
                         margin:
                             const EdgeInsets.only(bottom: 1), // For card shadow
-                        child: PodcastListItem(),
+                        child: PodcastListItem(
+                          podcast: podcast,
+                          viewType: PodcastListItemViewType.block,
+                        ),
                       );
                     }).toList(),
                   )
