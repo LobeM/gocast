@@ -111,9 +111,148 @@ class PodcastListItem extends StatelessWidget {
           ),
         );
       case PodcastListItemViewType.grid:
-        return Card();
+        return Card(
+          elevation: 1,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(kBoxDecorationRadius),
+          ),
+          margin: EdgeInsets.zero,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).cardColor,
+              borderRadius:
+                  const BorderRadius.all(Radius.circular(kBoxDecorationRadius)),
+            ),
+            child: InkWell(
+              onTap: () => _showPodcastScreen(context),
+              child: Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      height: 120,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: CachedNetworkImageProvider(podcast.image),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(kBoxDecorationRadius),
+                          topRight: Radius.circular(kBoxDecorationRadius),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(
+                          top: kPaddingS, start: kPaddingS, end: kPaddingS),
+                      child: StrutText(
+                        podcast.title,
+                        maxLines: 1,
+                        style: Theme.of(context).textTheme.bodyText2.bold,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(
+                          start: kPaddingS, end: kPaddingS, top: 2),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: StrutText(
+                              podcast.author,
+                              maxLines: 1,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2
+                                  .copyWith(color: Theme.of(context).hintColor),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+        break;
+
+      case PodcastListItemViewType.list:
+        return Card(
+          elevation: 1,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(kBoxDecorationRadius),
+          ),
+          margin: EdgeInsets.zero,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).cardColor,
+              borderRadius:
+                  const BorderRadius.all(Radius.circular(kBoxDecorationRadius)),
+            ),
+            child: InkWell(
+              onTap: () => _showPodcastScreen(context),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 96,
+                    height: 96,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: CachedNetworkImageProvider(podcast.image),
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: const BorderRadiusDirectional.only(
+                        topStart: Radius.circular(kBoxDecorationRadius),
+                        bottomStart: Radius.circular(kBoxDecorationRadius),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        top: kPaddingS,
+                        bottom: kPaddingS,
+                        left: kPaddingS,
+                        right: kPaddingS,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          StrutText(
+                            podcast.image,
+                            maxLines: 1,
+                            style: Theme.of(context).textTheme.subtitle1.w600,
+                          ),
+                          const Padding(padding: EdgeInsets.only(top: 2)),
+                          StrutText(
+                            podcast.author,
+                            maxLines: 1,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyText2
+                                .copyWith(color: Theme.of(context).hintColor),
+                            overflow: TextOverflow.ellipsis,
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+        break;
+
+      case PodcastListItemViewType.search:
+        return InkWell();
+        break;
+
       default:
+        return Container();
     }
-    return Container();
   }
 }
