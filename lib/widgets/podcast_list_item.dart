@@ -4,6 +4,7 @@ import 'package:gocast/configs/constants.dart';
 import 'package:gocast/data/models/podcast_model.dart';
 import 'package:gocast/widgets/strut_text.dart';
 import 'package:gocast/utils/text_style.dart';
+import 'package:gocast/utils/string.dart';
 
 enum PodcastListItemViewType { search, list, grid, block }
 
@@ -248,7 +249,71 @@ class PodcastListItem extends StatelessWidget {
         break;
 
       case PodcastListItemViewType.search:
-        return InkWell();
+        return InkWell(
+          onTap: () => _showPodcastScreen(context),
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  width: 1,
+                  color: Theme.of(context).dividerColor,
+                ),
+              ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsetsDirectional.only(end: kPaddingS),
+                  child: Icon(
+                    Icons.radio,
+                    color: Theme.of(context).disabledColor,
+                    size: 36,
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.only(end: kPaddingM),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        if (wordToStyle.isEmpty)
+                          StrutText(
+                            podcast.title,
+                            style: Theme.of(context).textTheme.subtitle1,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          )
+                        else
+                          RichText(
+                            text: TextSpan(
+                              style: Theme.of(context).textTheme.subtitle1,
+                              children: podcast.title.getSpans(
+                                matchWord: wordToStyle,
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        StrutText(
+                          podcast.author,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText2
+                              .copyWith(color: Theme.of(context).hintColor),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
         break;
 
       default:
