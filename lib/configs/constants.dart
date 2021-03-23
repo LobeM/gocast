@@ -79,6 +79,7 @@ const String kLogzioUrl = 'https://listener-uk.logz.io:8071/';
 
 /// Assets images
 class AssetsImages {
+  static const String background = 'assets/images/background.jpg';
   static const String onboardingAudioPlayer =
       'assets/images/onboarding/audio_player.svg';
   static const String onboardingPodcast =

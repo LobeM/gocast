@@ -14,7 +14,7 @@ class PodcastListItem extends StatelessWidget {
     this.podcast,
     this.viewType,
     this.wordToStyle,
-    this.showFavoriteButton,
+    // this.showFavoriteButton,
     this.isFavourite,
     this.onFavopriteButtonPressed,
   }) : super(key: key);
@@ -22,7 +22,7 @@ class PodcastListItem extends StatelessWidget {
   final PodcastModel podcast;
   final PodcastListItemViewType viewType;
   final String wordToStyle;
-  final bool showFavoriteButton;
+  // final bool showFavoriteButton;
   final bool isFavourite;
   final VoidCallback onFavopriteButtonPressed;
 
@@ -39,7 +39,7 @@ class PodcastListItem extends StatelessWidget {
           ),
           margin: EdgeInsets.zero,
           child: Container(
-            height: 290,
+            height: 180,
             decoration: BoxDecoration(
               color: Theme.of(context).cardColor,
               borderRadius:
@@ -54,7 +54,7 @@ class PodcastListItem extends StatelessWidget {
                     alignment: Alignment.topRight,
                     children: <Widget>[
                       Container(
-                        height: 200,
+                        height: 150,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: CachedNetworkImageProvider(podcast.image),
@@ -66,14 +66,14 @@ class PodcastListItem extends StatelessWidget {
                           ),
                         ),
                       ),
-                      if (showFavoriteButton)
-                        IconButton(
-                          icon: Icon(isFavourite
-                              ? Icons.favorite
-                              : Icons.favorite_border),
-                          color: kPrimaryColor,
-                          onPressed: onFavopriteButtonPressed ?? () {},
-                        )
+                      // if (showFavoriteButton)
+                      //   IconButton(
+                      //     icon: Icon(isFavourite
+                      //         ? Icons.favorite
+                      //         : Icons.favorite_border),
+                      //     color: kPrimaryColor,
+                      //     onPressed: onFavopriteButtonPressed ?? () {},
+                      //   )
                     ],
                   ),
                   Padding(

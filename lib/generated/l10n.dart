@@ -75,6 +75,16 @@ class L10n {
     );
   }
 
+  /// `Top Podcasts`
+  String get exploreTopPodcasts {
+    return Intl.message(
+      'Top Podcasts',
+      name: 'exploreTopPodcasts',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Skip`
   String get onboardingBtnSkip {
     return Intl.message(

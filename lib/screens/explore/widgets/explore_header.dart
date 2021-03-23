@@ -3,6 +3,7 @@ import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/configs/constants.dart';
 import 'package:gocast/generated/l10n.dart';
 import 'package:gocast/main.dart';
+import 'package:gocast/screens/explore/widgets/header_image.dart';
 import 'package:gocast/widgets/strut_text.dart';
 import 'package:gocast/utils/text_style.dart';
 
@@ -24,6 +25,7 @@ class ExploreHeader extends SliverPersistentHeaderDelegate {
         alignment: Alignment.bottomCenter,
         children: <Widget>[
           // add image header
+          HeaderImage(),
           Padding(
             padding: const EdgeInsets.only(
               bottom: kPaddingL,
@@ -42,7 +44,7 @@ class ExploreHeader extends SliverPersistentHeaderDelegate {
                             ? L10n.of(context).exploreTitleUser(
                                 getIt.get<AppGlobals>().user?.fullName)
                             : L10n.of(context).exploreTitleGuest,
-                        style: Theme.of(context).textTheme.headline4.w600,
+                        style: Theme.of(context).textTheme.headline4.white.w600,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -57,7 +59,7 @@ class ExploreHeader extends SliverPersistentHeaderDelegate {
                       style: Theme.of(context)
                           .textTheme
                           .headline6
-                          .copyWith(color: kBlack.withOpacity(.85)),
+                          .copyWith(color: kWhite.withOpacity(.85)),
                     ),
                   ),
                 ),

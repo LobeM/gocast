@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "explorePlaceholderSearch" : MessageLookupByLibrary.simpleMessage("Search for podcasts"),
     "exploreTitleGuest" : MessageLookupByLibrary.simpleMessage("Explore"),
     "exploreTitleUser" : m0,
+    "exploreTopPodcasts" : MessageLookupByLibrary.simpleMessage("Top Podcasts"),
     "onboardingBtnGetStarted" : MessageLookupByLibrary.simpleMessage("Get Started"),
     "onboardingBtnSkip" : MessageLookupByLibrary.simpleMessage("Skip"),
     "onboardingPage1Body" : MessageLookupByLibrary.simpleMessage("With over 95 million volumes of spoken audio content we have something for everyone."),

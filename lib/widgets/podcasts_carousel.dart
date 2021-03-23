@@ -35,14 +35,14 @@ class _PodcastsCarouselState extends State<PodcastsCarousel> {
             onNavigate: widget.onNavigate,
           ),
           Container(
-            height: 250,
+            height: 220,
             child: widget.podcasts != null
                 ? ListView(
                     padding: const EdgeInsetsDirectional.only(start: kPaddingM),
                     scrollDirection: Axis.horizontal,
                     children: widget.podcasts.map((PodcastModel podcast) {
                       return Container(
-                        width: 340,
+                        width: 150,
                         padding:
                             const EdgeInsetsDirectional.only(end: kPaddingS),
                         margin:
