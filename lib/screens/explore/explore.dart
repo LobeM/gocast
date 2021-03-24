@@ -5,6 +5,7 @@ import 'package:gocast/data/models/podcast_model.dart';
 import 'package:gocast/data/repositories/podcasts_repository.dart';
 import 'package:gocast/generated/l10n.dart';
 import 'package:gocast/screens/explore/widgets/explore_header.dart';
+import 'package:gocast/widgets/episode_list_item.dart';
 import 'package:gocast/widgets/podcasts_carousel.dart';
 
 class ExploreScreen extends StatefulWidget {
@@ -70,6 +71,7 @@ class _ExploreScreenState extends State<ExploreScreen>
               delegate: SliverChildListDelegate(
                 <Widget>[
                   _showTopPodcasts(),
+                  EpisodeListItem(),
                   const Padding(padding: EdgeInsets.only(bottom: kPaddingL)),
                 ],
               ),

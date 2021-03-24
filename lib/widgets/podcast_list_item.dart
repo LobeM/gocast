@@ -57,7 +57,7 @@ class PodcastListItem extends StatelessWidget {
                         height: 150,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: CachedNetworkImageProvider(podcast.image),
+                            image: CachedNetworkImageProvider(podcast.imageUrl),
                             fit: BoxFit.cover,
                           ),
                           borderRadius: const BorderRadius.only(
@@ -134,7 +134,7 @@ class PodcastListItem extends StatelessWidget {
                       height: 120,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: CachedNetworkImageProvider(podcast.image),
+                          image: CachedNetworkImageProvider(podcast.imageUrl),
                           fit: BoxFit.cover,
                         ),
                         borderRadius: const BorderRadius.only(
@@ -202,7 +202,7 @@ class PodcastListItem extends StatelessWidget {
                     height: 96,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: CachedNetworkImageProvider(podcast.image),
+                        image: CachedNetworkImageProvider(podcast.imageUrl),
                         fit: BoxFit.cover,
                       ),
                       borderRadius: const BorderRadiusDirectional.only(
@@ -223,7 +223,7 @@ class PodcastListItem extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           StrutText(
-                            podcast.image,
+                            podcast.imageUrl,
                             maxLines: 1,
                             style: Theme.of(context).textTheme.subtitle1.w600,
                           ),
