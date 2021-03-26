@@ -54,9 +54,9 @@ dependencies:
   # A package provides an easy way to add shimmer effect in Flutter project.
   shimmer: ^1.1.2
   # Being able to compare objects in Dart often involves having to override the == operator as well as hashCode.
-  equatable:
+  equatable: ^2.0.0
   # Draw SVG (and some Android VectorDrawable (XML)) files on a Flutter Widget.
-  flutter_svg:
+  flutter_svg: ^0.19.3
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

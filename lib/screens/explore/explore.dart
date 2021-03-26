@@ -5,7 +5,7 @@ import 'package:gocast/data/models/podcast_model.dart';
 import 'package:gocast/data/repositories/podcasts_repository.dart';
 import 'package:gocast/generated/l10n.dart';
 import 'package:gocast/screens/explore/widgets/explore_header.dart';
-import 'package:gocast/widgets/episode_list_item.dart';
+import 'package:gocast/widgets/episodes_list.dart';
 import 'package:gocast/widgets/podcasts_carousel.dart';
 
 class ExploreScreen extends StatefulWidget {
@@ -21,6 +21,7 @@ class _ExploreScreenState extends State<ExploreScreen>
   bool _isDataLoaded = false;
 
   List<PodcastModel> _topPodcasts;
+  List<PodcastModel> _topEpisodes;
 
   final PodcastRepository podcastRepository = const PodcastRepository();
 
@@ -33,10 +34,17 @@ class _ExploreScreenState extends State<ExploreScreen>
     );
   }
 
+  Widget _showTopEpisodes() {
+    return EpisodesList(
+      podcasts: _topEpisodes,
+    );
+  }
+
   Widget _showTrendingPodcasts() {}
 
   Future<void> _loadData() async {
     _topPodcasts = await podcastRepository.getTopPodcasts();
+    _topEpisodes = await podcastRepository.getTopEpisodes();
     if (mounted) {
       setState(() => _isDataLoaded = true);
     }
@@ -71,7 +79,7 @@ class _ExploreScreenState extends State<ExploreScreen>
               delegate: SliverChildListDelegate(
                 <Widget>[
                   _showTopPodcasts(),
-                  EpisodeListItem(),
+                  _showTopEpisodes(),
                   const Padding(padding: EdgeInsets.only(bottom: kPaddingL)),
                 ],
               ),
