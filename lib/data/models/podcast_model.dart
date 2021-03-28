@@ -16,14 +16,14 @@ class PodcastModel {
   final List<EpisodeModel> episodes;
 
   factory PodcastModel.fromJson(Map<String, dynamic> json) {
-    final String _image = json['image'] as String ?? '';
+    final String _imageUrl = json['image_url'] as String ?? '';
     final List<dynamic> _episodes =
         json['episodes'] as List<dynamic> ?? <dynamic>[];
     return PodcastModel(
         id: json['id'],
         title: json['title'],
         author: json['author'],
-        imageUrl: _image.isNotEmpty ? _image : '',
+        imageUrl: _imageUrl.isNotEmpty ? _imageUrl : '',
         episodes: _episodes
             .map<EpisodeModel>((dynamic json) =>
                 EpisodeModel.fromJson(json as Map<String, dynamic>))

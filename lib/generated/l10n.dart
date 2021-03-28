@@ -164,6 +164,216 @@ class L10n {
       args: [],
     );
   }
+
+  /// `{day, select, monday {Monday} tuesday {Tuesday} wednesday {Wednesday} thursday {Thursday} friday {Friday} saturday {Saturday} sunday {Sunday} other {Unknown}}`
+  String commonWeekdayLong(Object day) {
+    return Intl.select(
+      day,
+      {
+        'monday': 'Monday',
+        'tuesday': 'Tuesday',
+        'wednesday': 'Wednesday',
+        'thursday': 'Thursday',
+        'friday': 'Friday',
+        'saturday': 'Saturday',
+        'sunday': 'Sunday',
+        'other': 'Unknown',
+      },
+      name: 'commonWeekdayLong',
+      desc: '',
+      args: [day],
+    );
+  }
+
+  /// `{day, select, monday {Mon} tuesday {Tue} wednesday {Wed} thursday {Thu} friday {Fri} saturday {Sat} sunday {Sun} other {Unknown}}`
+  String commonWeekdayShort(Object day) {
+    return Intl.select(
+      day,
+      {
+        'monday': 'Mon',
+        'tuesday': 'Tue',
+        'wednesday': 'Wed',
+        'thursday': 'Thu',
+        'friday': 'Fri',
+        'saturday': 'Sat',
+        'sunday': 'Sun',
+        'other': 'Unknown',
+      },
+      name: 'commonWeekdayShort',
+      desc: '',
+      args: [day],
+    );
+  }
+
+  /// `{day, select, january {January} february {February} march {March} april {April} may {May} june {June} july {July} august {August} september {September} october {October} november {November} december {December} other {Unknown}}`
+  String commonMonthLong(Object day) {
+    return Intl.select(
+      day,
+      {
+        'january': 'January',
+        'february': 'February',
+        'march': 'March',
+        'april': 'April',
+        'may': 'May',
+        'june': 'June',
+        'july': 'July',
+        'august': 'August',
+        'september': 'September',
+        'october': 'October',
+        'november': 'November',
+        'december': 'December',
+        'other': 'Unknown',
+      },
+      name: 'commonMonthLong',
+      desc: '',
+      args: [day],
+    );
+  }
+
+  /// `{day, select, january {Jan} february {Feb} march {Mar} april {Apr} may {May} june {Jun} july {Jul} august {Aug} september {Sep} october {Oct} november {Nov} december {Dec} other {Unknown}}`
+  String commonMonthShort(Object day) {
+    return Intl.select(
+      day,
+      {
+        'january': 'Jan',
+        'february': 'Feb',
+        'march': 'Mar',
+        'april': 'Apr',
+        'may': 'May',
+        'june': 'Jun',
+        'july': 'Jul',
+        'august': 'Aug',
+        'september': 'Sep',
+        'october': 'Oct',
+        'november': 'Nov',
+        'december': 'Dec',
+        'other': 'Unknown',
+      },
+      name: 'commonMonthShort',
+      desc: '',
+      args: [day],
+    );
+  }
+
+  /// `Today`
+  String get commonWeekdayToday {
+    return Intl.message(
+      'Today',
+      name: 'commonWeekdayToday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tomorrow`
+  String get commonWeekdayTomorrow {
+    return Intl.message(
+      'Tomorrow',
+      name: 'commonWeekdayTomorrow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{value} min`
+  String commonDurationFormat(Object value) {
+    return Intl.message(
+      '$value min',
+      name: 'commonDurationFormat',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `1 day, {hours} hours ago`
+  String commonElapsedDayHours(Object hours) {
+    return Intl.message(
+      '1 day, $hours hours ago',
+      name: 'commonElapsedDayHours',
+      desc: '',
+      args: [hours],
+    );
+  }
+
+  /// `{days} days ago`
+  String commonElapsedDays(Object days) {
+    return Intl.message(
+      '$days days ago',
+      name: 'commonElapsedDays',
+      desc: '',
+      args: [days],
+    );
+  }
+
+  /// `1 hour, {mins} mins ago`
+  String commonElapseHhourMins(Object mins) {
+    return Intl.message(
+      '1 hour, $mins mins ago',
+      name: 'commonElapseHhourMins',
+      desc: '',
+      args: [mins],
+    );
+  }
+
+  /// `{hours} hours ago`
+  String commonElapsedHours(Object hours) {
+    return Intl.message(
+      '$hours hours ago',
+      name: 'commonElapsedHours',
+      desc: '',
+      args: [hours],
+    );
+  }
+
+  /// `{mins} mins ago`
+  String commonElapsedMins(Object mins) {
+    return Intl.message(
+      '$mins mins ago',
+      name: 'commonElapsedMins',
+      desc: '',
+      args: [mins],
+    );
+  }
+
+  /// `now`
+  String get commonElapsedNow {
+    return Intl.message(
+      'now',
+      name: 'commonElapsedNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{mins} min`
+  String commonDurationMins(Object mins) {
+    return Intl.message(
+      '$mins min',
+      name: 'commonDurationMins',
+      desc: '',
+      args: [mins],
+    );
+  }
+
+  /// `{hours} hr`
+  String commonDurationHours(Object hours) {
+    return Intl.message(
+      '$hours hr',
+      name: 'commonDurationHours',
+      desc: '',
+      args: [hours],
+    );
+  }
+
+  /// `{hours} hr {mins} min`
+  String commonDurationHourMin(Object hours, Object mins) {
+    return Intl.message(
+      '$hours hr $mins min',
+      name: 'commonDurationHourMin',
+      desc: '',
+      args: [hours, mins],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {

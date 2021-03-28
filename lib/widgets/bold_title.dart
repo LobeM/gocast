@@ -29,8 +29,8 @@ class BoldTitle extends StatelessWidget {
           const EdgeInsetsDirectional.only(
             start: kPaddingM,
             end: kPaddingS,
-            top: kPaddingL,
-            bottom: kPaddingM,
+            top: kPaddingM,
+            bottom: kPaddingS,
           ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,

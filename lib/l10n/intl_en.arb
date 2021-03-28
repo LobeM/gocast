@@ -12,5 +12,21 @@
     "onboardingPage2Title": "Listen offline",
     "onboardingPage2Body": "Enjoy your favourite podcast anywhere by downloading them to play offline and on the go!",
     "onboardingPage3Title": "More than listening",
-    "onboardingPage3Body": "Connect with hosts and creators you love with this easy to use app."
+    "onboardingPage3Body": "Connect with hosts and creators you love with this easy to use app.",
+    "commonWeekdayLong": "{day, select, monday {Monday} tuesday {Tuesday} wednesday {Wednesday} thursday {Thursday} friday {Friday} saturday {Saturday} sunday {Sunday} other {Unknown}}",
+    "commonWeekdayShort": "{day, select, monday {Mon} tuesday {Tue} wednesday {Wed} thursday {Thu} friday {Fri} saturday {Sat} sunday {Sun} other {Unknown}}",
+    "commonMonthLong": "{day, select, january {January} february {February} march {March} april {April} may {May} june {June} july {July} august {August} september {September} october {October} november {November} december {December} other {Unknown}}",
+    "commonMonthShort": "{day, select, january {Jan} february {Feb} march {Mar} april {Apr} may {May} june {Jun} july {Jul} august {Aug} september {Sep} october {Oct} november {Nov} december {Dec} other {Unknown}}",
+    "commonWeekdayToday": "Today",
+    "commonWeekdayTomorrow": "Tomorrow",
+    "commonDurationFormat": "{value} min",
+    "commonElapsedDayHours": "1 day, {hours} hours ago",
+    "commonElapsedDays": "{days} days ago",
+    "commonElapseHhourMins": "1 hour, {mins} mins ago",
+    "commonElapsedHours": "{hours} hours ago",
+    "commonElapsedMins": "{mins} mins ago",
+    "commonElapsedNow": "now",
+    "commonDurationMins": "{mins} min",
+    "commonDurationHours": "{hours} hr",
+    "commonDurationHourMin": "{hours} hr {mins} min"
 }

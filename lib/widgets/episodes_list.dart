@@ -17,31 +17,32 @@ class _EpisodesListState extends State<EpisodesList> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: 100,
-      child: widget.podcasts != null
-          // ? ListView.builder(
-          //     scrollDirection: Axis.vertical,
-          //     itemCount: widget.podcasts.length,
-          //     itemBuilder: (BuildContext context, int index) {
-          //       return EpisodeListItem(podcast: widget.podcasts[index]);
-          //     })
-          ? Column(
-              // scrollDirection: Axis.vertical,
-              children: widget.podcasts.map((PodcastModel podcast) {
-                return Container(
-                  padding: EdgeInsets.only(bottom: kPaddingM),
-                  child: PodcastListItem(
-                    podcast: podcast,
-                    viewType: PodcastListItemViewType.detailEpisode,
-                  ),
-                );
-              }).toList(),
-            )
-          : ListView.builder(
-              itemBuilder: (BuildContext context, int index) =>
-                  const ShimmerBox(width: 340, height: 250),
-              itemCount: List<int>.generate(2, (int index) => index).length,
-            ),
-    );
+        // height: 100,
+        child: widget.podcasts != null
+            // ? ListView.builder(
+            //     scrollDirection: Axis.vertical,
+            //     itemCount: widget.podcasts.length,
+            //     itemBuilder: (BuildContext context, int index) {
+            //       return EpisodeListItem(podcast: widget.podcasts[index]);
+            //     })
+            ? Column(
+                // scrollDirection: Axis.vertical,
+                children: widget.podcasts.map((PodcastModel podcast) {
+                  return Container(
+                    padding: EdgeInsets.only(bottom: kPaddingS),
+                    child: PodcastListItem(
+                      podcast: podcast,
+                      viewType: PodcastListItemViewType.detailEpisode,
+                    ),
+                  );
+                }).toList(),
+              )
+            : Column()
+        // : ListView.builder(
+        //     itemBuilder: (BuildContext context, int index) =>
+        //         const ShimmerBox(width: 340, height: 250),
+        //     itemCount: List<int>.generate(2, (int index) => index).length,
+        //   ),
+        );
   }
 }

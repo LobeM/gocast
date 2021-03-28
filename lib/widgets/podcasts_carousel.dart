@@ -25,7 +25,7 @@ class _PodcastsCarouselState extends State<PodcastsCarousel> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 342,
+      height: 290,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -56,7 +56,7 @@ class _PodcastsCarouselState extends State<PodcastsCarousel> {
                   )
                 : ListView.builder(
                     itemBuilder: (BuildContext context, int index) =>
-                        const ShimmerBox(width: 340, height: 250),
+                        const ShimmerBox(width: 340, height: 220),
                     itemCount:
                         List<int>.generate(2, (int index) => index).length,
                   ),

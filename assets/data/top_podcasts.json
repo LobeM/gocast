@@ -5,25 +5,25 @@
                 "id": 1,
                 "title": "Stuff You Should Know",
                 "author": "iHeartRadio",
-                "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGRJf8KoRq8gfy_jpVgqDgtE-eKyXpHOpFEHlAmVqW1L2uOqo"
+                "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGRJf8KoRq8gfy_jpVgqDgtE-eKyXpHOpFEHlAmVqW1L2uOqo"
             },
             {
                 "id": 2,
                 "title": "The Daily",
                 "author": "The New York Times",
-                "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjZt805JMihjChbsRmtabBwt86kFvGcdEdzg2Fg-rP_hPUo6We"
+                "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjZt805JMihjChbsRmtabBwt86kFvGcdEdzg2Fg-rP_hPUo6We"
             },
             {
                 "id": 3,
                 "title": "TED Talks Daily",
                 "author": "TED",
-                "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQvWRhYcJbWw4w6a9CFskUnb0-McmhM1QTyfq0omvEuVZyrA6Y"
+                "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQvWRhYcJbWw4w6a9CFskUnb0-McmhM1QTyfq0omvEuVZyrA6Y"
             },
             {
                 "id": 4,
                 "title": "Planet Money",
                 "author": "NPR",
-                "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSeQypKxL8Qzjf0n28K0uUD-iVMtxcHx-G_NspdBSTCJcZv-YWh"
+                "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSeQypKxL8Qzjf0n28K0uUD-iVMtxcHx-G_NspdBSTCJcZv-YWh"
             }
         ]    
     }
