@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/configs/constants.dart';
+import 'package:gocast/data/models/category_model.dart';
+import 'package:gocast/data/models/explore_tab_model.dart';
+import 'package:gocast/data/models/explore_tab_model.dart';
 import 'package:gocast/data/models/podcast_model.dart';
 import 'package:gocast/data/repositories/podcasts_repository.dart';
 import 'package:gocast/generated/l10n.dart';
+import 'package:gocast/main.dart';
 import 'package:gocast/screens/explore/widgets/explore_header.dart';
 import 'package:gocast/widgets/episodes_list.dart';
 import 'package:gocast/widgets/podcasts_carousel.dart';
@@ -24,6 +29,8 @@ class _ExploreScreenState extends State<ExploreScreen>
   List<PodcastModel> _topEpisodes;
 
   final PodcastRepository podcastRepository = const PodcastRepository();
+
+  List<ExploreTabModel> categoryTabs = <ExploreTabModel>[];
 
   Widget _showSubscribedPodcasts() {}
 
@@ -47,6 +54,23 @@ class _ExploreScreenState extends State<ExploreScreen>
     _topEpisodes = await podcastRepository.getTopEpisodes();
     if (mounted) {
       setState(() => _isDataLoaded = true);
+    }
+
+    /// First tab in the list is ALL (categories).
+    categoryTabs.add(ExploreTabModel.fromJson(<String, dynamic>{
+      'id': 0,
+      'globalKey': GlobalKey(debugLabel: 'exploreTab_for_you'),
+      'label': L10n.current.exploreLabelForYou,
+    }));
+
+    /// Other tabs in the list will be added from the location category list.
+    for (final CategoryModel category in getIt.get<AppGlobals>().categories) {
+      categoryTabs.add(ExploreTabModel.fromJson(<String, dynamic>{
+        'id': category.id,
+        'globalKey':
+            GlobalKey(debugLabel: 'categoryTab_' + category.id.toString()),
+        'label': category.title,
+      }));
     }
   }
 

@@ -1,4 +1,5 @@
 import 'package:gocast/data/data_provider.dart';
+import 'package:gocast/data/models/category_model.dart';
 import 'package:gocast/data/models/data_response_model.dart';
 import 'package:gocast/data/models/podcast_model.dart';
 
@@ -8,6 +9,18 @@ class PodcastRepository {
   });
 
   final DataProvider dataProvider;
+
+  Future<List<CategoryModel>> getCategories() async {
+    final DataResponseModel rawData = await dataProvider.get('categories');
+
+    final List<dynamic> _categories =
+        rawData.data['categories'] as List<dynamic> ?? <dynamic>[];
+
+    return _categories
+        .map<CategoryModel>((dynamic json) =>
+            CategoryModel.fromJson(json as Map<String, dynamic>))
+        .toList();
+  }
 
   Future<List<PodcastModel>> getTopPodcasts() async {
     final DataResponseModel rawData = await dataProvider.get('top_podcasts');

@@ -1,0 +1,34 @@
+{
+    "data": {
+        "categories": [
+            {
+                "id": 1,
+                "title": "News"
+            },
+            {
+                "id": 2,
+                "title": "Culture"
+            },
+            {
+                "id": 3,
+                "title": "Business"
+            },
+            {
+                "id": 4,
+                "title": "Education"
+            },
+            {
+                "id": 5,
+                "title": "Comedy"
+            },
+            {
+                "id": 6,
+                "title": "Health &  Fitness"
+            },
+            {
+                "id": 5,
+                "title": "Technology"
+            }
+        ]
+    }
+}

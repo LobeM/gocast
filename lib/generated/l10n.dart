@@ -85,6 +85,16 @@ class L10n {
     );
   }
 
+  /// `For You`
+  String get exploreLabelForYou {
+    return Intl.message(
+      'For You',
+      name: 'exploreLabelForYou',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Skip`
   String get onboardingBtnSkip {
     return Intl.message(

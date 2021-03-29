@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:gocast/configs/app_theme.dart';
+import 'package:gocast/data/models/category_model.dart';
 import 'package:gocast/data/models/user_model.dart';
 
 class AppGlobals {
@@ -28,6 +29,9 @@ class AppGlobals {
 
   /// [GlobalKey] for tab bar in [ExploreScreen].
   GlobalKey globalKeyExploreTabs;
+
+  /// Business/Location categories.
+  List<CategoryModel> categories;
 
   /// Logged in user data.
   UserModel user;

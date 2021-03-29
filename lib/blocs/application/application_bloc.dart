@@ -5,6 +5,7 @@ import 'package:gocast/blocs/theme/theme_bloc.dart';
 import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/configs/app_theme.dart';
 import 'package:gocast/configs/constants.dart';
+import 'package:gocast/data/repositories/podcasts_repository.dart';
 import 'package:gocast/generated/l10n.dart';
 import 'package:gocast/main.dart';
 import 'package:gocast/utils/app_preferences.dart';
@@ -99,6 +100,8 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
     yield LoadSettingsInProgressApplicationState();
 
     // Load any settings
+    getIt.get<AppGlobals>().categories =
+        await const PodcastRepository().getCategories();
 
     yield LoadSettingsSuccessApplicationState();
   }

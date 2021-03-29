@@ -66,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "commonWeekdayToday" : MessageLookupByLibrary.simpleMessage("Today"),
     "commonWeekdayTomorrow" : MessageLookupByLibrary.simpleMessage("Tomorrow"),
     "exploreHeaderSubtitle" : MessageLookupByLibrary.simpleMessage("Listen to your favourite podcasts"),
+    "exploreLabelForYou" : MessageLookupByLibrary.simpleMessage("For You"),
     "explorePlaceholderSearch" : MessageLookupByLibrary.simpleMessage("Search for podcasts"),
     "exploreTitleGuest" : MessageLookupByLibrary.simpleMessage("Explore"),
     "exploreTitleUser" : m13,
