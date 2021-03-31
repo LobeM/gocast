@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:gocast/blocs/application/application_bloc.dart';
 import 'package:gocast/blocs/auth/auth_bloc.dart';
+import 'package:gocast/blocs/explore/explore_bloc.dart';
 import 'package:gocast/blocs/theme/theme_bloc.dart';
 import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/configs/app_theme.dart';
@@ -21,6 +22,7 @@ final RouteObserver<PageRoute<dynamic>> routeObserver =
 ApplicationBloc _applicationBloc;
 AuthBloc _authBloc;
 ThemeBloc _themeBloc;
+ExploreBloc _exploreBloc;
 
 class MainApp extends StatefulWidget {
   @override
@@ -42,6 +44,7 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
   void _initBlocs() {
     _authBloc = AuthBloc();
     _themeBloc = ThemeBloc();
+    _exploreBloc = ExploreBloc();
 
     _applicationBloc = ApplicationBloc(
       authBloc: _authBloc,
@@ -63,6 +66,7 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
     _applicationBloc.close();
     _authBloc.close();
     _themeBloc.close();
+    _exploreBloc.close();
 
     super.dispose();
   }
