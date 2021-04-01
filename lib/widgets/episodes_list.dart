@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gocast/configs/constants.dart';
 import 'package:gocast/data/models/podcast_model.dart';
 import 'package:gocast/widgets/podcast_list_item.dart';
-import 'package:gocast/widgets/shimmer_box.dart';
 
 class EpisodesList extends StatefulWidget {
   const EpisodesList({Key key, this.podcasts}) : super(key: key);

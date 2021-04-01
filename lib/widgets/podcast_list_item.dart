@@ -122,9 +122,9 @@ class PodcastListItem extends StatelessWidget {
           onTap: () {},
           child: Card(
             elevation: 1,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(kBoxDecorationRadius),
-            ),
+            // shape: RoundedRectangleBorder(
+            //   borderRadius: BorderRadius.circular(kBoxDecorationRadius),
+            // ),
             margin: EdgeInsets.zero,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

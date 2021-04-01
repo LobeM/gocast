@@ -93,34 +93,38 @@ class _ExploreScreenState extends State<ExploreScreen>
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.light,
+      value: SystemUiOverlayStyle.dark,
       child: Scaffold(
-        body: CustomScrollView(
-          slivers: <Widget>[
-            SliverPersistentHeader(
-              delegate: ExploreHeader(expandedHeight: 280),
-              pinned: false,
-            ),
-            SliverAppBar(
-              primary: false,
-              floating: false,
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              flexibleSpace: ExploreTabs(
-                key: getIt.get<AppGlobals>().globalKeyExploreTabs,
-                exploreTabs: categoryTabs,
-                activeExploreTab: 0,
+        body: SafeArea(
+          child: CustomScrollView(
+            slivers: <Widget>[
+              SliverPersistentHeader(
+                delegate: ExploreHeader(expandedHeight: 220),
+                // delegate: ExploreHeader(expandedHeight: 280),
+                pinned: false,
               ),
-            ),
-            SliverList(
-              delegate: SliverChildListDelegate(
-                <Widget>[
-                  _showTopPodcasts(),
-                  _showTopEpisodes(),
-                  const Padding(padding: EdgeInsets.only(bottom: kPaddingL)),
-                ],
+              SliverAppBar(
+                primary: false,
+                floating: true,
+                pinned: true,
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                flexibleSpace: ExploreTabs(
+                  key: getIt.get<AppGlobals>().globalKeyExploreTabs,
+                  exploreTabs: categoryTabs,
+                  activeExploreTab: 0,
+                ),
               ),
-            ),
-          ],
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  <Widget>[
+                    _showTopPodcasts(),
+                    _showTopEpisodes(),
+                    const Padding(padding: EdgeInsets.only(bottom: kPaddingL)),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

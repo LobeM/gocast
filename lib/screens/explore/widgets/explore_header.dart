@@ -31,7 +31,8 @@ class ExploreHeader extends SliverPersistentHeaderDelegate {
               bottom: kPaddingL,
               left: kPaddingL,
               right: kPaddingL,
-              top: kToolbarHeight + kPaddingM,
+              // top: kToolbarHeight + kPaddingM,
+              top: kPaddingL,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,7 +70,7 @@ class ExploreHeader extends SliverPersistentHeaderDelegate {
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.only(
-                bottom: kPaddingL,
+                bottom: kPaddingM,
                 left: kPaddingL,
                 right: kPaddingL,
               ),
