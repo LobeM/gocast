@@ -7,3 +7,9 @@ abstract class ExploreState {
 }
 
 class InitialExploreState extends ExploreState {}
+
+class RefreshSuccessExploreState extends ExploreState {
+  RefreshSuccessExploreState(this.session);
+
+  final ExploreSessionModel session;
+}
