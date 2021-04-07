@@ -149,7 +149,7 @@ class _ExploreScreenState extends State<ExploreScreen>
                       flexibleSpace: ExploreTabs(
                         key: getIt.get<AppGlobals>().globalKeyExploreTabs,
                         exploreTabs: categoryTabs,
-                        activeExploreTab: 0,
+                        activeExploreTab: session.activeExploreTab,
                       ),
                     ),
                     SliverList(

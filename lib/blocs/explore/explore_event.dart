@@ -15,7 +15,7 @@ class SessionInitiatedExploreEvent extends ExploreEvent {
 class FilteredListRequestedExploreEvent extends ExploreEvent {}
 
 class CategoryFilteredExploreEvent extends ExploreEvent {
-  CategoryFilteredExploreEvent(this.activeExploreTab);
+  CategoryFilteredExploreEvent({this.activeExploreTab});
 
   final int activeExploreTab;
 }

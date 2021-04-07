@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gocast/blocs/explore/explore_bloc.dart';
 import 'package:gocast/configs/constants.dart';
 import 'package:gocast/data/models/explore_tab_model.dart';
 import 'package:gocast/widgets/strut_text.dart';
@@ -48,7 +50,8 @@ class ExploreTabsState extends State<ExploreTabs> {
                       .withOpacity(0.75));
           return InkWell(
             key: item.globalKey,
-            onTap: () {},
+            onTap: () => BlocProvider.of<ExploreBloc>(context)
+                .add(CategoryFilteredExploreEvent(activeExploreTab: item.id)),
             child: Container(
               padding: const EdgeInsetsDirectional.only(
                   top: kPaddingS, start: kPaddingS, end: kPaddingS),
