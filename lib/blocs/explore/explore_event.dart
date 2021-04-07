@@ -7,7 +7,7 @@ abstract class ExploreEvent {
 }
 
 class SessionInitiatedExploreEvent extends ExploreEvent {
-  SessionInitiatedExploreEvent(this.activeExploreTab);
+  SessionInitiatedExploreEvent({this.activeExploreTab});
 
   final int activeExploreTab;
 }

@@ -16,10 +16,10 @@ class ExploreTabs extends StatefulWidget {
   final int activeExploreTab;
 
   @override
-  _ExploreTabsState createState() => _ExploreTabsState();
+  ExploreTabsState createState() => ExploreTabsState();
 }
 
-class _ExploreTabsState extends State<ExploreTabs> {
+class ExploreTabsState extends State<ExploreTabs> {
   final ItemScrollController itemScrollController = ItemScrollController();
 
   @override

@@ -91,6 +91,8 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
             create: (BuildContext context) => _applicationBloc),
         BlocProvider<AuthBloc>(create: (BuildContext context) => _authBloc),
         BlocProvider<ThemeBloc>(create: (BuildContext context) => _themeBloc),
+        BlocProvider<ExploreBloc>(
+            create: (BuildContext context) => _exploreBloc),
       ],
       child: BlocBuilder<ApplicationBloc, ApplicationState>(
         buildWhen:
