@@ -30,6 +30,9 @@ class AppGlobals {
   /// [GlobalKey] for tab bar in [ExploreScreen].
   GlobalKey globalKeyExploreTabs;
 
+  /// [GlobalKey] for tab bar in [LibraryScreen].
+  GlobalKey globalKeyLibraryTabs;
+
   /// Business/Location categories.
   List<CategoryModel> categories;
 

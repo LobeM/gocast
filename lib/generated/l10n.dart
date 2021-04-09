@@ -384,6 +384,26 @@ class L10n {
       args: [hours, mins],
     );
   }
+
+  /// `Downloads`
+  String get libraryTabTitle1 {
+    return Intl.message(
+      'Downloads',
+      name: 'libraryTabTitle1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subscriptions`
+  String get libraryTabTitle2 {
+    return Intl.message(
+      'Subscriptions',
+      name: 'libraryTabTitle2',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {

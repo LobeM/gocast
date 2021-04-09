@@ -61,10 +61,10 @@ class _BottomNavigationState extends State<BottomNavigation> {
             children: [
               ExploreScreen(
                   key: getIt.get<AppGlobals>().globalKeyExploreScreen),
-              if (getIt.get<AppGlobals>().user != null)
-                LibraryScreen()
-              else
-                LibraryWelcomeScreen(),
+              // if (getIt.get<AppGlobals>().user != null)
+              //   LibraryScreen()
+              // else
+              LibraryScreen(),
               if (getIt.get<AppGlobals>().user != null)
                 ProfileScreen()
               else

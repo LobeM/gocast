@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gocast/blocs/explore/explore_bloc.dart';
 import 'package:gocast/configs/constants.dart';
 import 'package:gocast/data/models/top_tab_model.dart';
 import 'package:gocast/widgets/strut_text.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:gocast/utils/text_style.dart';
 
-class ExploreTabs extends StatefulWidget {
-  const ExploreTabs({
+class LibraryTabs extends StatefulWidget {
+  const LibraryTabs({
     Key key,
-    this.exploreTabs,
+    this.libraryTabs,
     this.activeExploreTab = 0,
   }) : super(key: key);
 
-  final List<TopTabModel> exploreTabs;
+  final List<TopTabModel> libraryTabs;
   final int activeExploreTab;
 
   @override
-  ExploreTabsState createState() => ExploreTabsState();
+  LibraryTabsState createState() => LibraryTabsState();
 }
 
-class ExploreTabsState extends State<ExploreTabs> {
+class LibraryTabsState extends State<LibraryTabs> {
   final ItemScrollController itemScrollController = ItemScrollController();
 
   @override
@@ -30,11 +28,11 @@ class ExploreTabsState extends State<ExploreTabs> {
       color: Theme.of(context).scaffoldBackgroundColor,
       height: 44,
       child: ScrollablePositionedList.builder(
-        itemCount: widget.exploreTabs.length,
+        itemCount: widget.libraryTabs.length,
         itemScrollController: itemScrollController,
         scrollDirection: Axis.horizontal,
         itemBuilder: (BuildContext context, int index) {
-          final TopTabModel item = widget.exploreTabs[index];
+          final TopTabModel item = widget.libraryTabs[index];
           final bool isActive = item.id == widget.activeExploreTab;
           final TextStyle textStyle = isActive
               ? Theme.of(context)
@@ -50,8 +48,7 @@ class ExploreTabsState extends State<ExploreTabs> {
                       .withOpacity(0.75));
           return InkWell(
             key: item.globalKey,
-            onTap: () => BlocProvider.of<ExploreBloc>(context)
-                .add(CategoryFilteredExploreEvent(activeExploreTab: item.id)),
+            onTap: () {},
             child: Container(
               padding: const EdgeInsetsDirectional.only(
                   top: kPaddingS, start: kPaddingS, end: kPaddingS),

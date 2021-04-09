@@ -71,6 +71,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "exploreTitleGuest" : MessageLookupByLibrary.simpleMessage("Explore"),
     "exploreTitleUser" : m13,
     "exploreTopPodcasts" : MessageLookupByLibrary.simpleMessage("Top Podcasts"),
+    "libraryTabTitle1" : MessageLookupByLibrary.simpleMessage("Downloads"),
+    "libraryTabTitle2" : MessageLookupByLibrary.simpleMessage("Subscriptions"),
     "onboardingBtnGetStarted" : MessageLookupByLibrary.simpleMessage("Get Started"),
     "onboardingBtnSkip" : MessageLookupByLibrary.simpleMessage("Skip"),
     "onboardingPage1Body" : MessageLookupByLibrary.simpleMessage("With over 95 million volumes of spoken audio content we have something for everyone."),

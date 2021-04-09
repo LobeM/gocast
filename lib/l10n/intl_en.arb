@@ -29,5 +29,7 @@
     "commonElapsedNow": "now",
     "commonDurationMins": "{mins} min",
     "commonDurationHours": "{hours} hr",
-    "commonDurationHourMin": "{hours} hr {mins} min"
+    "commonDurationHourMin": "{hours} hr {mins} min",
+    "libraryTabTitle1": "Downloads",
+    "libraryTabTitle2": "Subscriptions"
 }

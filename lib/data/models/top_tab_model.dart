@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ExploreTabModel {
-  ExploreTabModel(
+class TopTabModel {
+  TopTabModel(
     this.id,
     this.globalKey,
     this.label,
   );
 
-  factory ExploreTabModel.fromJson(Map<String, dynamic> json) {
-    return ExploreTabModel(
+  factory TopTabModel.fromJson(Map<String, dynamic> json) {
+    return TopTabModel(
       json['id'] as int ?? 0,
       json['globalKey'],
       json['label'] as String ?? '',

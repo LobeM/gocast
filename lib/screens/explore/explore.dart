@@ -6,7 +6,7 @@ import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/configs/constants.dart';
 import 'package:gocast/data/models/category_model.dart';
 import 'package:gocast/data/models/explore_session_model.dart';
-import 'package:gocast/data/models/explore_tab_model.dart';
+import 'package:gocast/data/models/top_tab_model.dart';
 import 'package:gocast/data/models/podcast_model.dart';
 import 'package:gocast/data/repositories/podcasts_repository.dart';
 import 'package:gocast/generated/l10n.dart';
@@ -36,7 +36,7 @@ class _ExploreScreenState extends State<ExploreScreen>
 
   final PodcastRepository podcastRepository = const PodcastRepository();
 
-  List<ExploreTabModel> categoryTabs = <ExploreTabModel>[];
+  List<TopTabModel> categoryTabs = <TopTabModel>[];
 
   ExploreBloc _exploreBloc;
 
@@ -65,7 +65,7 @@ class _ExploreScreenState extends State<ExploreScreen>
     // }
 
     /// First tab in the list is ALL (categories).
-    categoryTabs.add(ExploreTabModel.fromJson(<String, dynamic>{
+    categoryTabs.add(TopTabModel.fromJson(<String, dynamic>{
       'id': 0,
       'globalKey': GlobalKey(debugLabel: 'categoryTab_for_you'),
       'label': L10n.current.exploreLabelForYou,
@@ -73,7 +73,7 @@ class _ExploreScreenState extends State<ExploreScreen>
 
     /// Other tabs in the list will be added from the location category list.
     for (final CategoryModel category in getIt.get<AppGlobals>().categories) {
-      categoryTabs.add(ExploreTabModel.fromJson(<String, dynamic>{
+      categoryTabs.add(TopTabModel.fromJson(<String, dynamic>{
         'id': category.id,
         'globalKey':
             GlobalKey(debugLabel: 'categoryTab_' + category.id.toString()),

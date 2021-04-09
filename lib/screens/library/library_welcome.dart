@@ -8,6 +8,8 @@ class LibraryWelcomeScreen extends StatefulWidget {
 class _LibraryWelcomeScreenState extends State<LibraryWelcomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Text('Sign in to view library'),
+    );
   }
 }
