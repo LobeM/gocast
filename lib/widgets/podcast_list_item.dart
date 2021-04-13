@@ -9,7 +9,7 @@ import 'package:gocast/utils/text_style.dart';
 import 'package:gocast/utils/datetime.dart';
 import 'package:gocast/utils/int.dart';
 
-enum PodcastListItemViewType { block, detailEpisode }
+enum PodcastListItemViewType { block, detailEpisode, episodeTile }
 
 class PodcastListItem extends StatelessWidget {
   const PodcastListItem({
@@ -244,6 +244,13 @@ class PodcastListItem extends StatelessWidget {
           ),
         );
         break;
+
+      case PodcastListItemViewType.episodeTile:
+        final EpisodeModel episode = podcast.episodes[0];
+        return ListTile(
+          title: Text(episode.title),
+          subtitle: Text(episode.duration.toDuration(context)),
+        );
       // case PodcastListItemViewType.grid:
       //   return Card(
       //     elevation: 1,

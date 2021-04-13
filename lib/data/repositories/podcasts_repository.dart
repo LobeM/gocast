@@ -43,4 +43,27 @@ class PodcastRepository {
         .map<PodcastModel>((dynamic json) => PodcastModel.fromJson(json))
         .toList();
   }
+
+  Future<List<PodcastModel>> getDownloadEpisodes() async {
+    final DataResponseModel rawData = await dataProvider.get('top_episodes');
+
+    final List<dynamic> _podcasts =
+        rawData.data['top_episodes'] as List<dynamic> ?? <dynamic>[];
+
+    return _podcasts
+        .map<PodcastModel>((dynamic json) => PodcastModel.fromJson(json))
+        .toList();
+  }
+
+  Future<List<PodcastModel>> getSubscribedPodcasts() async {
+    print("called subs");
+    final DataResponseModel rawData = await dataProvider.get('top_podcasts');
+
+    final List<dynamic> _podcasts =
+        rawData.data['top_podcasts'] as List<dynamic> ?? <dynamic>[];
+
+    return _podcasts
+        .map<PodcastModel>((dynamic json) => PodcastModel.fromJson(json))
+        .toList();
+  }
 }

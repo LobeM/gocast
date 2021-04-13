@@ -6,14 +6,12 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:gocast/utils/text_style.dart';
 
 class LibraryTabs extends StatefulWidget {
-  const LibraryTabs({
-    Key key,
-    this.libraryTabs,
-    this.activeExploreTab = 0,
-  }) : super(key: key);
+  const LibraryTabs({Key key, this.libraryTabs, this.activeTab = 0, this.onTap})
+      : super(key: key);
 
   final List<TopTabModel> libraryTabs;
-  final int activeExploreTab;
+  final int activeTab;
+  final ValueSetter<int> onTap;
 
   @override
   LibraryTabsState createState() => LibraryTabsState();
@@ -33,7 +31,7 @@ class LibraryTabsState extends State<LibraryTabs> {
         scrollDirection: Axis.horizontal,
         itemBuilder: (BuildContext context, int index) {
           final TopTabModel item = widget.libraryTabs[index];
-          final bool isActive = item.id == widget.activeExploreTab;
+          final bool isActive = item.id == widget.activeTab;
           final TextStyle textStyle = isActive
               ? Theme.of(context)
                   .textTheme
@@ -48,7 +46,7 @@ class LibraryTabsState extends State<LibraryTabs> {
                       .withOpacity(0.75));
           return InkWell(
             key: item.globalKey,
-            onTap: () {},
+            onTap: () => widget.onTap(item.id),
             child: Container(
               padding: const EdgeInsetsDirectional.only(
                   top: kPaddingS, start: kPaddingS, end: kPaddingS),
