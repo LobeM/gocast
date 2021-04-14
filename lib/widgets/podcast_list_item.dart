@@ -248,8 +248,75 @@ class PodcastListItem extends StatelessWidget {
       case PodcastListItemViewType.episodeTile:
         final EpisodeModel episode = podcast.episodes[0];
         return ListTile(
-          title: Text(episode.title),
-          subtitle: Text(episode.duration.toDuration(context)),
+          leading: CachedNetworkImage(
+            imageUrl: podcast.imageUrl,
+            imageBuilder:
+                (BuildContext context, ImageProvider<Object> imageProvider) =>
+                    Container(
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: imageProvider,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            placeholder: (context, url) => LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraits) {
+              return ShimmerBox(width: 50, height: 50);
+            }),
+          ),
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              StrutText(
+                episode.uploadDate.elapsedTime(context),
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
+              StrutText(
+                podcast.title,
+                style: Theme.of(context).textTheme.bodyText1,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              )
+            ],
+          ),
+          subtitle: Row(
+            children: [
+              // IconButton(
+              //   icon: Icon(
+              //     Icons.play_arrow,
+              //     color: kPrimaryColor,
+              //   ),
+              //   onPressed: () {},
+              // ),
+              Icon(
+                Icons.play_arrow,
+                color: kPrimaryColor,
+              ),
+              SizedBox(width: 8.0),
+              StrutText(
+                episode.duration.toDuration(context),
+                style: Theme.of(context).textTheme.bodyText1,
+              ),
+              Spacer(),
+              IconButton(
+                icon: Icon(
+                  Icons.playlist_add,
+                  color: kPrimaryColor,
+                ),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.delete,
+                  color: Colors.red,
+                ),
+                onPressed: () {},
+              ),
+            ],
+          ),
         );
       // case PodcastListItemViewType.grid:
       //   return Card(
