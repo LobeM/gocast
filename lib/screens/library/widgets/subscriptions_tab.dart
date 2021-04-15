@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gocast/data/models/podcast_model.dart';
+import 'package:gocast/widgets/podcast_list_item.dart';
 
 class SubscriptionsTab extends StatefulWidget {
   const SubscriptionsTab({Key key, this.podcasts}) : super(key: key);
@@ -10,20 +11,24 @@ class SubscriptionsTab extends StatefulWidget {
 }
 
 class _SubscriptionsTabState extends State<SubscriptionsTab> {
-  // void _initGlobals() async {
-  //   _podcasts = await const PodcastRepository().getTopEpisodes();
-  // }
-
-  // @override
-  // void initState() {
-  //   _initGlobals();
-  //   super.initState();
-  // }
-
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("subscriptions: ${widget.podcasts.length}"),
+    return Container(
+      child: Column(
+        children: widget.podcasts
+            .map(
+              (PodcastModel item) => Column(
+                children: [
+                  PodcastListItem(
+                    podcast: item,
+                    viewType: PodcastListItemViewType.list,
+                  ),
+                  Divider(),
+                ],
+              ),
+            )
+            .toList(),
+      ),
     );
   }
 }

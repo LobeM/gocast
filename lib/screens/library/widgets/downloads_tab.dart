@@ -14,18 +14,6 @@ class DownloadsTab extends StatefulWidget {
 class _DownloadsTabState extends State<DownloadsTab> {
   @override
   Widget build(BuildContext context) {
-    // return Container(
-    //   height: 300,
-    //   child: ListView.builder(
-    //     itemCount: widget.podcasts.length,
-    //     itemBuilder: (BuildContext context, int index) {
-    //       return PodcastListItem(
-    //         podcast: widget.podcasts[index],
-    //         viewType: PodcastListItemViewType.episodeTile,
-    //       );
-    //     },
-    //   ),
-    // );
     return Container(
       child: Column(
         children: widget.podcasts
