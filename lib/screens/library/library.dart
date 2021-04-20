@@ -8,6 +8,7 @@ import 'package:gocast/main.dart';
 import 'package:gocast/screens/library/widgets/downloads_tab.dart';
 import 'package:gocast/screens/library/widgets/library_tabs.dart';
 import 'package:gocast/screens/library/widgets/subscriptions_tab.dart';
+import 'package:gocast/utils/list.dart';
 
 class LibraryScreen extends StatefulWidget {
   @override
@@ -52,11 +53,11 @@ class _LibraryScreenState extends State<LibraryScreen> {
 
   @override
   void initState() {
-    super.initState();
     getIt.get<AppGlobals>().globalKeyLibraryTabs =
         GlobalKey<LibraryTabsState>();
 
     _initGlobals();
+    super.initState();
   }
 
   @override
@@ -79,7 +80,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
             ),
             SliverList(
               delegate: SliverChildListDelegate(
-                <Widget>[screens[_activeTab]],
+                <Widget>[if (screens.isNotNullOrEmpty) screens[_activeTab]],
               ),
             ),
           ],

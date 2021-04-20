@@ -62,6 +62,9 @@ const int kSnackBarDurationLong = 10000;
 /// Default locale.
 const Locale kDefaultLocale = Locale('en');
 
+/// Random list of 10
+const List<int> kTenNumberList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 /// Password match regex string.
 ///
 /// - Require that at least one digit appear anywhere in the string
