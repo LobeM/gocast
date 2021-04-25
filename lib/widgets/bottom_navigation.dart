@@ -65,10 +65,11 @@ class _BottomNavigationState extends State<BottomNavigation> {
               //   LibraryScreen()
               // else
               LibraryScreen(),
-              if (getIt.get<AppGlobals>().user != null)
-                ProfileScreen()
-              else
-                SignInScreen(),
+              // if (getIt.get<AppGlobals>().user != null)
+              //   ProfileScreen()
+              // else
+              ProfileScreen()
+              // SignInScreen(),
             ],
           );
         },
