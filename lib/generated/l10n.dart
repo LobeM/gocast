@@ -404,6 +404,106 @@ class L10n {
       args: [],
     );
   }
+
+  /// `My Subscriptions`
+  String get profileTitleSubscriptions {
+    return Intl.message(
+      'My Subscriptions',
+      name: 'profileTitleSubscriptions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Downloads`
+  String get profileTitleDownloads {
+    return Intl.message(
+      'My Downloads',
+      name: 'profileTitleDownloads',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Profile`
+  String get profileTitleEdit {
+    return Intl.message(
+      'Edit Profile',
+      name: 'profileTitleEdit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Connect`
+  String get profileTitleConnect {
+    return Intl.message(
+      'Connect',
+      name: 'profileTitleConnect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share GoCast`
+  String get profileTitleShare {
+    return Intl.message(
+      'Share GoCast',
+      name: 'profileTitleShare',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rate Us`
+  String get profileTitleRate {
+    return Intl.message(
+      'Rate Us',
+      name: 'profileTitleRate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help`
+  String get profileTitleHelp {
+    return Intl.message(
+      'Help',
+      name: 'profileTitleHelp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `More`
+  String get profileTitleMore {
+    return Intl.message(
+      'More',
+      name: 'profileTitleMore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get profileTitleSettings {
+    return Intl.message(
+      'Settings',
+      name: 'profileTitleSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About us`
+  String get profileTitleAbout {
+    return Intl.message(
+      'About us',
+      name: 'profileTitleAbout',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {

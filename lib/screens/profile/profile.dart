@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gocast/configs/constants.dart';
+import 'package:gocast/generated/l10n.dart';
 import 'package:gocast/screens/profile/widgets/profile_info.dart';
 import 'package:gocast/widgets/arrow_right_icon.dart';
 import 'package:gocast/widgets/list_item.dart';
@@ -29,44 +30,44 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: ListView(
                     children: [
                       ListItem(
-                        title: 'My Subscriptions',
+                        title: L10n.of(context).profileTitleSubscriptions,
                         leading: const Icon(Icons.library_music_outlined),
                         trailing: ArrowRightIcon(),
                       ),
                       ListItem(
-                        title: 'My Downloads',
+                        title: L10n.of(context).profileTitleDownloads,
                         leading: const Icon(Icons.download_outlined),
                         trailing: ArrowRightIcon(),
                       ),
                       ListItem(
-                        title: 'Edit Profile',
+                        title: L10n.of(context).profileTitleEdit,
                         leading: const Icon(Icons.person_outline),
                         trailing: ArrowRightIcon(),
                       ),
-                      ListTitle(title: 'Connect'),
+                      ListTitle(title: L10n.of(context).profileTitleConnect),
                       ListItem(
-                        title: 'Share GoCast',
+                        title: L10n.of(context).profileTitleShare,
                         leading: const Icon(Icons.share),
                         trailing: ArrowRightIcon(),
                       ),
                       ListItem(
-                        title: 'Rate Us',
+                        title: L10n.of(context).profileTitleRate,
                         leading: const Icon(Icons.star_outline),
                         trailing: ArrowRightIcon(),
                       ),
                       ListItem(
-                        title: 'Help',
+                        title: L10n.of(context).profileTitleHelp,
                         leading: const Icon(Icons.help_outline_outlined),
                         trailing: ArrowRightIcon(),
                       ),
-                      ListTitle(title: 'More'),
+                      ListTitle(title: L10n.of(context).profileTitleMore),
                       ListItem(
-                        title: 'Settings',
+                        title: L10n.of(context).profileTitleSettings,
                         leading: const Icon(Icons.settings_outlined),
                         trailing: ArrowRightIcon(),
                       ),
                       ListItem(
-                        title: 'About us',
+                        title: L10n.of(context).profileTitleAbout,
                         leading: const Icon(Icons.info_outline),
                         trailing: ArrowRightIcon(),
                       ),

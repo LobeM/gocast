@@ -31,5 +31,15 @@
     "commonDurationHours": "{hours} hr",
     "commonDurationHourMin": "{hours} hr {mins} min",
     "libraryTabTitle1": "Downloads",
-    "libraryTabTitle2": "Subscriptions"
+    "libraryTabTitle2": "Subscriptions",
+    "profileTitleSubscriptions": "My Subscriptions",
+    "profileTitleDownloads": "My Downloads",
+    "profileTitleEdit": "Edit Profile",
+    "profileTitleConnect": "Connect",
+    "profileTitleShare": "Share GoCast",
+    "profileTitleRate": "Rate Us",
+    "profileTitleHelp": "Help",
+    "profileTitleMore": "More",
+    "profileTitleSettings": "Settings",
+    "profileTitleAbout": "About us"
 }

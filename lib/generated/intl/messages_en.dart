@@ -80,6 +80,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboardingPage2Body" : MessageLookupByLibrary.simpleMessage("Enjoy your favourite podcast anywhere by downloading them to play offline and on the go!"),
     "onboardingPage2Title" : MessageLookupByLibrary.simpleMessage("Listen offline"),
     "onboardingPage3Body" : MessageLookupByLibrary.simpleMessage("Connect with hosts and creators you love with this easy to use app."),
-    "onboardingPage3Title" : MessageLookupByLibrary.simpleMessage("More than listening")
+    "onboardingPage3Title" : MessageLookupByLibrary.simpleMessage("More than listening"),
+    "profileTitleAbout" : MessageLookupByLibrary.simpleMessage("About us"),
+    "profileTitleConnect" : MessageLookupByLibrary.simpleMessage("Connect"),
+    "profileTitleDownloads" : MessageLookupByLibrary.simpleMessage("My Downloads"),
+    "profileTitleEdit" : MessageLookupByLibrary.simpleMessage("Edit Profile"),
+    "profileTitleHelp" : MessageLookupByLibrary.simpleMessage("Help"),
+    "profileTitleMore" : MessageLookupByLibrary.simpleMessage("More"),
+    "profileTitleRate" : MessageLookupByLibrary.simpleMessage("Rate Us"),
+    "profileTitleSettings" : MessageLookupByLibrary.simpleMessage("Settings"),
+    "profileTitleShare" : MessageLookupByLibrary.simpleMessage("Share GoCast"),
+    "profileTitleSubscriptions" : MessageLookupByLibrary.simpleMessage("My Subscriptions")
   };
 }
