@@ -1,0 +1,32 @@
+{
+    "data": {
+        "id": 1,
+        "title": "Stuff You Should Know",
+        "author": "iHeartRadio",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGRJf8KoRq8gfy_jpVgqDgtE-eKyXpHOpFEHlAmVqW1L2uOqo",
+        "description": "If you've ever wanted to know about champagne, satanism, the Stonewall Uprising, chaos theory, LSD, El Nino, true crime and Rosa Parks, then look no further. Josh and Chuck have you covered.",
+        "episodes": [
+            {
+                "id": 1,
+                "title": "How Corporate Taxes Work",
+                "description": "There are lots of reasons to tax corporations: as a check on their power, to help pay for infrastructure, as a wealth tax. But the biggest reason economists cite for why they've stuck around is that everyday people think companies should have to pay them too. Learn more about your ad-choices at https://www.iheartpodcastnetwork.com",
+                "duration" : 54,
+                "upload_date": "2021-04-29T11:00:00Z"
+            },
+            {
+                "id": 2,
+                "title": "Short Stuff: Ivar The Boneless",
+                "description": "Was Ivar the Boneless a real Viking warrior? Probably. Did he really have no bones? Probably not. Learn more about your ad-choices at https://www.iheartpodcastnetwork.com",
+                "duration" : 11,
+                "upload_date": "2021-04-28T11:00:00Z"
+            },
+            {
+                "id": 3,
+                "title": "Truffles: Underground Treasures",
+                "description": "Truffles are rare, expensive and apparently delicious. Learn all about these earthy fungi today. Learn more about your ad-choices at https://www.iheartpodcastnetwork.com",
+                "duration" : 45,
+                "upload_date": "2021-04-27T11:00:00Z"
+            }
+        ]
+    }
+}

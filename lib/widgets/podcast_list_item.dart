@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gocast/configs/constants.dart';
+import 'package:gocast/configs/routes.dart';
 import 'package:gocast/data/models/episode_model.dart';
 import 'package:gocast/data/models/podcast_model.dart';
 import 'package:gocast/widgets/shimmer_box.dart';
@@ -28,7 +29,9 @@ class PodcastListItem extends StatelessWidget {
   final bool isFavourite;
   final VoidCallback onFavopriteButtonPressed;
 
-  void _showPodcastScreen(BuildContext context) {}
+  void _showPodcastScreen(BuildContext context, int id) {
+    Navigator.pushNamed(context, Routes.podcast, arguments: id);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +51,7 @@ class PodcastListItem extends StatelessWidget {
                   const BorderRadius.all(Radius.circular(kBoxDecorationRadius)),
             ),
             child: InkWell(
-              onTap: () => _showPodcastScreen(context),
+              onTap: () => _showPodcastScreen(context, podcast.id),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[

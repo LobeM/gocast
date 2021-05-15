@@ -33,6 +33,12 @@ class PodcastRepository {
         .toList();
   }
 
+  Future<PodcastModel> getPodcast(int id) async {
+    final DataResponseModel rawData = await dataProvider.get('podcast_$id');
+    print('podcast: ${rawData.data}');
+    return PodcastModel.fromJson(rawData.data);
+  }
+
   Future<List<PodcastModel>> getTopEpisodes() async {
     final DataResponseModel rawData = await dataProvider.get('top_episodes');
 

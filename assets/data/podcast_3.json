@@ -1,0 +1,32 @@
+{
+    "data": {
+        "id": 3,
+        "title": "TED Talks Daily",
+        "author": "TED",
+        "image_url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQvWRhYcJbWw4w6a9CFskUnb0-McmhM1QTyfq0omvEuVZyrA6Y",
+        "description": "Every weekday, TED Talks Daily brings you the latest talks in audio. Join host and journalist Elise Hu for thought-provoking ideas on every subject imaginable — from Artificial Intelligence to Zoology, and everything in between — given by the world's leading thinkers and creators. With TED Talks Daily, find some space in your day to change your perspectives, ignite your curiosity, and learn something new.",
+        "episodes": [
+            {
+                "id": 1,
+                "title": "The science behind how parents affect child development | Yuko Munakata",
+                "description": "Parents, take a deep breath: how your kids turn out isn't fully on you. Of course, parenting plays an important role in shaping who children become, but psychologist Yuko Munakata offers an alternative, research-backed reality that highlights how it's just one of many factors that influence the chaotic complexity of childhood development. A rethink for anyone wondering what made them who they are today and what it means to be a good parent.",
+                "duration" : 17,
+                "upload_date": "2021-05-14T11:00:00Z"
+            },
+            {
+                "id": 2,
+                "title": "How to discover your \"why\" in difficult times | Simon Sinek",
+                "description": "What has the coronavirus pandemic taught us about ourselves and our relationships? In a deeply personal and wide-ranging conversation, leadership expert Simon Sinek shares his own experience caring for his mental health as the world shut down. He discusses why we need to nurture friendships (in both good times and bad), explains why anyone can be a leader -- and reveals the secret to discovering your \"why\" in life. (This virtual conversation, hosted by head of TED Chris Anderson, was part of an exclusive TED Membership event. Visit ted.com/membership to become a TED Member.)",
+                "duration" : 15,
+                "upload_date": "2021-05-13T11:00:00Z"
+            },
+            {
+                "id": 3,
+                "title": "The case for co-ops, the invisible giant of the economy | Anu Puusa",
+                "description": "Think capitalism is broken? Try cooperativism, says co-op enthusiast and researcher Anu Puusa. She lays out how cooperatives -- businesses owned, operated and controlled by their members -- can both make money and have a positive impact on the environment and local communities. With co-ops, Puusa says, doing good business and doing good at the same time becomes possible.",
+                "duration" : 11,
+                "upload_date": "2021-05-12T11:00:00Z"
+            }
+        ]
+    }
+}
