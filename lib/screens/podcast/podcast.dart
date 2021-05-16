@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gocast/data/models/podcast_model.dart';
 import 'package:gocast/data/repositories/podcasts_repository.dart';
+import 'package:gocast/screens/podcast/widgets/podcast_header.dart';
 
 class PodcastScreen extends StatefulWidget {
   final int podcastId;
@@ -11,11 +12,10 @@ class PodcastScreen extends StatefulWidget {
 }
 
 class _PodcastScreenState extends State<PodcastScreen> {
-  PodcastModel _podcastModel;
+  PodcastModel _podcast;
 
   Future<void> _loadData() async {
-    _podcastModel =
-        await const PodcastRepository().getPodcast(widget.podcastId);
+    _podcast = await const PodcastRepository().getPodcast(widget.podcastId);
     if (mounted) {
       setState(() {});
     }
@@ -37,13 +37,15 @@ class _PodcastScreenState extends State<PodcastScreen> {
             SliverAppBar(
               leading: BackButton(),
               expandedHeight: 250.0,
-              floating: true,
+              primary: true,
               pinned: true,
-              title: Text(_podcastModel.title),
               flexibleSpace: FlexibleSpaceBar(
-                background: Container(
-                  decoration: BoxDecoration(color: Colors.red),
+                centerTitle: true,
+                title: PodcastHeader(
+                  imageUrl: _podcast.imageUrl,
+                  title: _podcast.title,
                 ),
+                background: Container(color: Colors.purple),
               ),
             )
           ],
