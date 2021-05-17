@@ -61,6 +61,7 @@ class _PodcastHeaderState extends State<PodcastHeader> {
         children: [
           Spacer(),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Visibility(
                 visible: !_visible,

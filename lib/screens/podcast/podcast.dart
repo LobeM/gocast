@@ -1,7 +1,12 @@
+import 'dart:ui';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:gocast/configs/constants.dart';
 import 'package:gocast/data/models/podcast_model.dart';
 import 'package:gocast/data/repositories/podcasts_repository.dart';
 import 'package:gocast/screens/podcast/widgets/podcast_header.dart';
+import 'package:gocast/widgets/blured_image.dart';
 
 class PodcastScreen extends StatefulWidget {
   final int podcastId;
@@ -36,7 +41,7 @@ class _PodcastScreenState extends State<PodcastScreen> {
               (BuildContext context, bool innerBoxIsScrolled) => [
             SliverAppBar(
               leading: BackButton(),
-              expandedHeight: 250.0,
+              expandedHeight: 200.0,
               primary: true,
               pinned: true,
               flexibleSpace: FlexibleSpaceBar(
@@ -45,11 +50,49 @@ class _PodcastScreenState extends State<PodcastScreen> {
                   imageUrl: _podcast.imageUrl,
                   title: _podcast.title,
                 ),
-                background: Container(color: Colors.purple),
+                background: BluredImage(_podcast.imageUrl),
               ),
             )
           ],
-          body: Container(),
+          body: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: kPaddingM),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        OutlinedButton(
+                          onPressed: () {},
+                          child: Row(
+                            children: [
+                              Icon(Icons.add),
+                              Text('subscribe'),
+                            ],
+                          ),
+                        ),
+                        SizedBox(width: kPaddingS),
+                        IconButton(
+                          icon: Icon(
+                            Icons.public_sharp,
+                            color: kPrimaryColor,
+                          ),
+                          onPressed: () {},
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            Icons.share,
+                            color: kPrimaryColor,
+                          ),
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       );
     }
