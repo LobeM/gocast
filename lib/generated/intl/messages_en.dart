@@ -71,8 +71,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "exploreTitleGuest" : MessageLookupByLibrary.simpleMessage("Explore"),
     "exploreTitleUser" : m13,
     "exploreTopPodcasts" : MessageLookupByLibrary.simpleMessage("Top Podcasts"),
+    "less" : MessageLookupByLibrary.simpleMessage("less"),
     "libraryTabTitle1" : MessageLookupByLibrary.simpleMessage("Downloads"),
     "libraryTabTitle2" : MessageLookupByLibrary.simpleMessage("Subscriptions"),
+    "more" : MessageLookupByLibrary.simpleMessage("more"),
     "onboardingBtnGetStarted" : MessageLookupByLibrary.simpleMessage("Get Started"),
     "onboardingBtnSkip" : MessageLookupByLibrary.simpleMessage("Skip"),
     "onboardingPage1Body" : MessageLookupByLibrary.simpleMessage("With over 95 million volumes of spoken audio content we have something for everyone."),
@@ -90,6 +92,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "profileTitleRate" : MessageLookupByLibrary.simpleMessage("Rate Us"),
     "profileTitleSettings" : MessageLookupByLibrary.simpleMessage("Settings"),
     "profileTitleShare" : MessageLookupByLibrary.simpleMessage("Share GoCast"),
-    "profileTitleSubscriptions" : MessageLookupByLibrary.simpleMessage("My Subscriptions")
+    "profileTitleSubscriptions" : MessageLookupByLibrary.simpleMessage("My Subscriptions"),
+    "subscribe" : MessageLookupByLibrary.simpleMessage("Subscribe"),
+    "subscribed" : MessageLookupByLibrary.simpleMessage("Subscribed")
   };
 }

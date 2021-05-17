@@ -1,10 +1,9 @@
-import 'dart:ui';
-
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gocast/configs/constants.dart';
 import 'package:gocast/data/models/podcast_model.dart';
 import 'package:gocast/data/repositories/podcasts_repository.dart';
+import 'package:gocast/generated/l10n.dart';
 import 'package:gocast/screens/podcast/widgets/podcast_header.dart';
 import 'package:gocast/widgets/blured_image.dart';
 
@@ -67,7 +66,7 @@ class _PodcastScreenState extends State<PodcastScreen> {
                           child: Row(
                             children: [
                               Icon(Icons.add),
-                              Text('subscribe'),
+                              Text(L10n.of(context).subscribe),
                             ],
                           ),
                         ),
@@ -88,6 +87,14 @@ class _PodcastScreenState extends State<PodcastScreen> {
                         ),
                       ],
                     ),
+                    SizedBox(height: kPaddingS),
+                    ExpandableText(
+                      _podcast.description,
+                      expandText: L10n.of(context).more,
+                      collapseText: L10n.of(context).less,
+                      maxLines: 5,
+                      linkColor: kPrimaryColor,
+                    )
                   ],
                 ),
               )

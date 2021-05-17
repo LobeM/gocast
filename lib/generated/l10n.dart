@@ -504,6 +504,46 @@ class L10n {
       args: [],
     );
   }
+
+  /// `Subscribe`
+  String get subscribe {
+    return Intl.message(
+      'Subscribe',
+      name: 'subscribe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subscribed`
+  String get subscribed {
+    return Intl.message(
+      'Subscribed',
+      name: 'subscribed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `more`
+  String get more {
+    return Intl.message(
+      'more',
+      name: 'more',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `less`
+  String get less {
+    return Intl.message(
+      'less',
+      name: 'less',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {

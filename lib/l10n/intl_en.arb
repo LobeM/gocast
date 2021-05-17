@@ -41,5 +41,9 @@
     "profileTitleHelp": "Help",
     "profileTitleMore": "More",
     "profileTitleSettings": "Settings",
-    "profileTitleAbout": "About us"
+    "profileTitleAbout": "About us",
+    "subscribe": "Subscribe",
+    "subscribed": "Subscribed",
+    "more": "more",
+    "less": "less"
 }
