@@ -45,5 +45,6 @@
     "subscribe": "Subscribe",
     "subscribed": "Subscribed",
     "more": "more",
-    "less": "less"
+    "less": "less",
+    "episodeCount": "{count} Episodes"
 }

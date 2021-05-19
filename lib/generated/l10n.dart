@@ -544,6 +544,16 @@ class L10n {
       args: [],
     );
   }
+
+  /// `{count} Episodes`
+  String episodeCount(Object count) {
+    return Intl.message(
+      '$count Episodes',
+      name: 'episodeCount',
+      desc: '',
+      args: [count],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {

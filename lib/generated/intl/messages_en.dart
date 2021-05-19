@@ -45,7 +45,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m12(day) => "${Intl.select(day, {'monday': 'Mon', 'tuesday': 'Tue', 'wednesday': 'Wed', 'thursday': 'Thu', 'friday': 'Fri', 'saturday': 'Sat', 'sunday': 'Sun', 'other': 'Unknown', })}";
 
-  static m13(name) => "Hi ${name}!";
+  static m13(count) => "${count} Episodes";
+
+  static m14(name) => "Hi ${name}!";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
@@ -65,11 +67,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "commonWeekdayShort" : m12,
     "commonWeekdayToday" : MessageLookupByLibrary.simpleMessage("Today"),
     "commonWeekdayTomorrow" : MessageLookupByLibrary.simpleMessage("Tomorrow"),
+    "episodeCount" : m13,
     "exploreHeaderSubtitle" : MessageLookupByLibrary.simpleMessage("Listen to your favourite podcasts"),
     "exploreLabelForYou" : MessageLookupByLibrary.simpleMessage("For You"),
     "explorePlaceholderSearch" : MessageLookupByLibrary.simpleMessage("Search for podcasts"),
     "exploreTitleGuest" : MessageLookupByLibrary.simpleMessage("Explore"),
-    "exploreTitleUser" : m13,
+    "exploreTitleUser" : m14,
     "exploreTopPodcasts" : MessageLookupByLibrary.simpleMessage("Top Podcasts"),
     "less" : MessageLookupByLibrary.simpleMessage("less"),
     "libraryTabTitle1" : MessageLookupByLibrary.simpleMessage("Downloads"),

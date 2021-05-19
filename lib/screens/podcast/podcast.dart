@@ -6,6 +6,8 @@ import 'package:gocast/data/repositories/podcasts_repository.dart';
 import 'package:gocast/generated/l10n.dart';
 import 'package:gocast/screens/podcast/widgets/podcast_header.dart';
 import 'package:gocast/widgets/blured_image.dart';
+import 'package:gocast/widgets/episode_list_item.dart';
+import 'package:gocast/widgets/strut_text.dart';
 
 class PodcastScreen extends StatefulWidget {
   final int podcastId;
@@ -97,7 +99,42 @@ class _PodcastScreenState extends State<PodcastScreen> {
                     )
                   ],
                 ),
-              )
+              ),
+              Divider(),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: kPaddingM),
+                child: Row(
+                  children: [
+                    StrutText(
+                        L10n.of(context).episodeCount(_podcast.episodes.length),
+                        style: Theme.of(context).textTheme.headline6),
+                    Spacer(),
+                    PopupMenuButton(
+                      icon: Icon(Icons.sort),
+                      itemBuilder: (BuildContext context) => [
+                        PopupMenuItem(
+                          child: Text('Newest First'),
+                          value: 0,
+                        ),
+                        PopupMenuItem(
+                          child: Text('Oldest First'),
+                          value: 1,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              for (var episode in _podcast.episodes)
+                Column(
+                  children: [
+                    EpisodeListItem(
+                      episode: episode,
+                      viewType: EpisodeListItemViewType.basicEpisode1,
+                    ),
+                    Divider()
+                  ],
+                ),
             ],
           ),
         ),
