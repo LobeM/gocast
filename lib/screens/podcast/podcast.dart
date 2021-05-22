@@ -125,11 +125,12 @@ class _PodcastScreenState extends State<PodcastScreen> {
                   ],
                 ),
               ),
-              for (var episode in _podcast.episodes)
+              for (int i = 0; i < _podcast.episodes.length; i++)
                 Column(
                   children: [
                     EpisodeListItem(
-                      episode: episode,
+                      podcast: _podcast,
+                      episodeId: _podcast.episodes[i].id,
                       viewType: EpisodeListItemViewType.basicEpisode1,
                     ),
                     Divider()

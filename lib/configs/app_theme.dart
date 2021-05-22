@@ -8,6 +8,7 @@ enum DarkOption { dynamic, alwaysOn, alwaysOff }
 /// Default values will be derived for arguments that are omitted.
 class AppTheme {
   /// constructs an [AppTheme]
+  static const double columnWidth = 360.0;
   AppTheme() {
     lightTheme = ThemeData(
       fontFamily: kFontFamily,
