@@ -5,8 +5,8 @@ import 'package:gocast/data/models/podcast_model.dart';
 import 'package:gocast/data/repositories/podcasts_repository.dart';
 import 'package:gocast/generated/l10n.dart';
 import 'package:gocast/screens/podcast/widgets/podcast_header.dart';
-import 'package:gocast/widgets/blured_image.dart';
 import 'package:gocast/widgets/episode_list_item.dart';
+import 'package:gocast/widgets/sliver_app_title.dart';
 import 'package:gocast/widgets/strut_text.dart';
 
 class PodcastScreen extends StatefulWidget {
@@ -41,18 +41,15 @@ class _PodcastScreenState extends State<PodcastScreen> {
           headerSliverBuilder:
               (BuildContext context, bool innerBoxIsScrolled) => [
             SliverAppBar(
-              leading: BackButton(),
-              expandedHeight: 200.0,
-              primary: true,
+              expandedHeight: 200,
               pinned: true,
               flexibleSpace: FlexibleSpaceBar(
-                centerTitle: true,
-                title: PodcastHeader(
-                  imageUrl: _podcast.imageUrl,
-                  title: _podcast.title,
-                ),
-                background: BluredImage(_podcast.imageUrl),
+                collapseMode: CollapseMode.parallax,
+                background: PodcastHeader(podcast: _podcast),
               ),
+              title: _podcast != null
+                  ? SliverAppTitle(child: Text(_podcast.title))
+                  : Container(),
             )
           ],
           body: Column(
@@ -61,34 +58,6 @@ class _PodcastScreenState extends State<PodcastScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: kPaddingM),
                 child: Column(
                   children: [
-                    Row(
-                      children: [
-                        OutlinedButton(
-                          onPressed: () {},
-                          child: Row(
-                            children: [
-                              Icon(Icons.add),
-                              Text(L10n.of(context).subscribe),
-                            ],
-                          ),
-                        ),
-                        SizedBox(width: kPaddingS),
-                        IconButton(
-                          icon: Icon(
-                            Icons.public_sharp,
-                            color: kPrimaryColor,
-                          ),
-                          onPressed: () {},
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.share,
-                            color: kPrimaryColor,
-                          ),
-                          onPressed: () {},
-                        ),
-                      ],
-                    ),
                     SizedBox(height: kPaddingS),
                     ExpandableText(
                       _podcast.description,
