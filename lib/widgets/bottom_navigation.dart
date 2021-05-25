@@ -6,9 +6,7 @@ import 'package:gocast/data/models/bottom_bar_item_model.dart';
 import 'package:gocast/main.dart';
 import 'package:gocast/screens/explore/explore.dart';
 import 'package:gocast/screens/library/library.dart';
-import 'package:gocast/screens/library/library_welcome.dart';
 import 'package:gocast/screens/profile/profile.dart';
-import 'package:gocast/screens/sign_in.dart';
 import 'package:gocast/utils/bottom_bar_items.dart';
 import 'package:gocast/utils/string.dart';
 

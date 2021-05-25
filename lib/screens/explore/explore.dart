@@ -136,7 +136,7 @@ class _ExploreScreenState extends State<ExploreScreen>
                 child: CustomScrollView(
                   slivers: <Widget>[
                     SliverPersistentHeader(
-                      delegate: ExploreHeader(expandedHeight: 220),
+                      delegate: ExploreHeader(expandedHeight: 65),
                       // delegate: ExploreHeader(expandedHeight: 280),
                       pinned: false,
                     ),

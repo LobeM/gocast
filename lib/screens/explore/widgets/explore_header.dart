@@ -3,9 +3,7 @@ import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/configs/constants.dart';
 import 'package:gocast/generated/l10n.dart';
 import 'package:gocast/main.dart';
-import 'package:gocast/screens/explore/widgets/header_image.dart';
 import 'package:gocast/widgets/strut_text.dart';
-import 'package:gocast/utils/text_style.dart';
 
 /// Delegate for configuring a [SliverPersistentHeader].
 ///
@@ -25,54 +23,58 @@ class ExploreHeader extends SliverPersistentHeaderDelegate {
         alignment: Alignment.bottomCenter,
         children: <Widget>[
           // add image header
-          HeaderImage(),
-          Padding(
-            padding: const EdgeInsets.only(
-              bottom: kPaddingL,
-              left: kPaddingL,
-              right: kPaddingL,
-              // top: kToolbarHeight + kPaddingM,
-              top: kPaddingL,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Row(
-                  children: <Widget>[
-                    Flexible(
-                      child: StrutText(
-                        getIt.get<AppGlobals>().user != null
-                            ? L10n.of(context).exploreTitleUser(
-                                getIt.get<AppGlobals>().user?.fullName)
-                            : L10n.of(context).exploreTitleGuest,
-                        style: Theme.of(context).textTheme.headline4.white.w600,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ],
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: kPaddingS),
-                    child: StrutText(
-                      L10n.of(context).exploreHeaderSubtitle,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline6
-                          .copyWith(color: kWhite.withOpacity(.85)),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          // HeaderImage(),
+          // Padding(
+          //   padding: const EdgeInsets.only(
+          //     bottom: kPaddingL,
+          //     left: kPaddingM,
+          //     right: kPaddingM,
+          //     // top: kToolbarHeight + kPaddingM,
+          //     top: kPaddingL,
+          //   ),
+          //   child: Column(
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: <Widget>[
+          //       Row(
+          //         children: <Widget>[
+          //           Flexible(
+          //             child: StrutText(
+          //               getIt.get<AppGlobals>().user != null
+          //                   ? L10n.of(context).exploreTitleUser(
+          //                       getIt.get<AppGlobals>().user?.fullName)
+          //                   : L10n.of(context).exploreTitleGuest,
+          //               style: Theme.of(context)
+          //                   .textTheme
+          //                   .headline4
+          //                   .w600
+          //                   .copyWith(color: Colors.blueGrey),
+          //               maxLines: 1,
+          //               overflow: TextOverflow.ellipsis,
+          //             ),
+          //           ),
+          //         ],
+          //       ),
+          //       Expanded(
+          //         child: Padding(
+          //           padding: const EdgeInsets.only(top: kPaddingS),
+          //           child: StrutText(
+          //             L10n.of(context).exploreHeaderSubtitle,
+          //             style: Theme.of(context)
+          //                 .textTheme
+          //                 .headline6
+          //                 .copyWith(color: Colors.blueGrey.withOpacity(0.8)),
+          //           ),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.only(
-                bottom: kPaddingM,
-                left: kPaddingL,
-                right: kPaddingL,
+                // bottom: kPaddingM,
+                left: kPaddingS,
+                right: kPaddingS,
               ),
               child: Card(
                 color: getIt.get<AppGlobals>().isPlatformBrightnessDark
@@ -135,7 +137,7 @@ class ExploreHeader extends SliverPersistentHeaderDelegate {
   ///
   /// This must return a value equal to or less than [maxExtent].
   @override
-  double get minExtent => 158;
+  double get minExtent => 50;
 
   /// Whether this delegate is meaningfully different from the old delegate.
   @override
