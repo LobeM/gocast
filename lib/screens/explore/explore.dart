@@ -40,7 +40,7 @@ class _ExploreScreenState extends State<ExploreScreen>
 
   ExploreBloc _exploreBloc;
 
-  Widget _showSubscribedPodcasts() {}
+  // Widget _showSubscribedPodcasts() {}
 
   Widget _showTopPodcasts(List<PodcastModel> podcasts) {
     return PodcastsCarousel(
@@ -55,7 +55,7 @@ class _ExploreScreenState extends State<ExploreScreen>
     );
   }
 
-  Widget _showTrendingPodcasts() {}
+  // Widget _showTrendingPodcasts() {}
 
   Future<void> _initGlobals() async {
     // _topPodcasts = await podcastRepository.getTopPodcasts();

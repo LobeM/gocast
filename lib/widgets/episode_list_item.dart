@@ -23,10 +23,11 @@ class EpisodeListItem extends StatelessWidget {
 
   void _episodeTapped(
       BuildContext context, PodcastModel podcast, int episodeId) {
-    showBottomSheet(
+    showModalBottomSheet(
       context: context,
       backgroundColor: Colors.transparent,
-      builder: (c) => EpisodeBottomSheet(
+      isScrollControlled: true,
+      builder: (context) => EpisodeBottomSheet(
         podcast: podcast,
         episodeId: episodeId,
       ),

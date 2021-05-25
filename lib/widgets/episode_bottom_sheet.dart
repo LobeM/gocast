@@ -18,215 +18,212 @@ class EpisodeBottomSheet extends StatelessWidget {
     this.episodeId,
   }) : super(key: key);
 
-  Widget _buildHandle(BuildContext context) {
-    final theme = Theme.of(context);
-
-    return FractionallySizedBox(
-      widthFactor: 0.25,
-      child: Container(
-        margin: const EdgeInsets.symmetric(
-          vertical: 12.0,
-        ),
-        child: Container(
-          height: 5.0,
-          decoration: BoxDecoration(
-            color: theme.dividerColor,
-            borderRadius: const BorderRadius.all(Radius.circular(2.5)),
-          ),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     EpisodeModel episode =
         podcast.episodes.firstWhere((e) => e.id == episodeId);
-    return SizedBox.expand(
-      child: DraggableScrollableSheet(
-        builder: (BuildContext context, ScrollController scrollController) {
-          return Container(
-            color: Theme.of(context).cardColor,
-            child: Column(
-              children: [
-                Stack(
-                  children: [
-                    Column(
-                      children: [
-                        Stack(
-                          children: [
-                            Container(
-                              height: 150,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: CachedNetworkImageProvider(
-                                      podcast.imageUrl),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                            Opacity(
-                              opacity: 0.5,
-                              child: Container(
-                                height: 150,
-                                color: Colors.black,
-                              ),
-                            ),
-                            Container(
-                              height: 150,
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: kPaddingM),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        StrutText(
-                                          podcast.title,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyText1
-                                              .bold
-                                              .copyWith(color: kWhite),
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                        PopupMenuButton(
-                                          icon: Icon(Icons.more_vert,
-                                              color: kWhite),
-                                          itemBuilder: (BuildContext context) =>
-                                              [
-                                            PopupMenuItem(
-                                              child: Text('Mark as played'),
-                                              value: 0,
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+    return GestureDetector(
+      onTap: () => Navigator.of(context).pop(),
+      child: Container(
+        color: Color.fromRGBO(0, 0, 0, 0.001),
+        child: GestureDetector(
+          onTap: () {},
+          child: DraggableScrollableSheet(
+            builder: (BuildContext context, ScrollController scrollController) {
+              return Container(
+                color: Theme.of(context).cardColor,
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  child: Column(
+                    children: [
+                      Stack(
+                        children: [
+                          Column(
+                            children: [
+                              Stack(
+                                children: [
+                                  Container(
+                                    height: 150,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: CachedNetworkImageProvider(
+                                            podcast.imageUrl),
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
-                                    StrutText(
-                                      episode.title,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headline6
-                                          .bold
-                                          .copyWith(color: kWhite),
-                                      maxLines: 3,
-                                      overflow: TextOverflow.ellipsis,
+                                  ),
+                                  Opacity(
+                                    opacity: 0.5,
+                                    child: Container(
+                                      height: 150,
+                                      color: Colors.black,
                                     ),
-                                    SizedBox(height: kPaddingS),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Icon(
-                                          Icons.access_time,
-                                          color: kWhite,
-                                          size: Theme.of(context)
-                                              .textTheme
-                                              .caption
-                                              .fontSize,
-                                        ),
-                                        SizedBox(width: 4),
-                                        StrutText(
-                                          episode.duration.toDuration(context),
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .caption
-                                              .bold
-                                              .copyWith(color: kWhite),
-                                          maxLines: 2,
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                        SizedBox(width: 16),
-                                        Icon(
-                                          Icons.calendar_today_outlined,
-                                          color: kWhite,
-                                          size: Theme.of(context)
-                                              .textTheme
-                                              .caption
-                                              .fontSize,
-                                        ),
-                                        SizedBox(width: 4),
-                                        StrutText(
-                                          episode.uploadDate.toLocalDateString,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .caption
-                                              .bold
-                                              .copyWith(color: kWhite),
-                                          maxLines: 2,
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ],
+                                  ),
+                                  Container(
+                                    height: 150,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: kPaddingM),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              StrutText(
+                                                podcast.title,
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyText1
+                                                    .bold
+                                                    .copyWith(color: kWhite),
+                                                maxLines: 1,
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                              PopupMenuButton(
+                                                icon: Icon(Icons.more_vert,
+                                                    color: kWhite),
+                                                itemBuilder:
+                                                    (BuildContext context) => [
+                                                  PopupMenuItem(
+                                                    child:
+                                                        Text('Mark as played'),
+                                                    value: 0,
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          StrutText(
+                                            episode.title,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headline6
+                                                .bold
+                                                .copyWith(color: kWhite),
+                                            maxLines: 3,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                          SizedBox(height: kPaddingS),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              Icon(
+                                                Icons.access_time,
+                                                color: kWhite,
+                                                size: Theme.of(context)
+                                                    .textTheme
+                                                    .caption
+                                                    .fontSize,
+                                              ),
+                                              SizedBox(width: 4),
+                                              StrutText(
+                                                episode.duration
+                                                    .toDuration(context),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .caption
+                                                    .bold
+                                                    .copyWith(color: kWhite),
+                                                maxLines: 2,
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                              SizedBox(width: 16),
+                                              Icon(
+                                                Icons.calendar_today_outlined,
+                                                color: kWhite,
+                                                size: Theme.of(context)
+                                                    .textTheme
+                                                    .caption
+                                                    .fontSize,
+                                              ),
+                                              SizedBox(width: 4),
+                                              StrutText(
+                                                episode.uploadDate
+                                                    .toLocalDateString,
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .caption
+                                                    .bold
+                                                    .copyWith(color: kWhite),
+                                                maxLines: 2,
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            IconButton(
-                              icon: Icon(Icons.file_download),
-                              onPressed: () {},
-                              color: kPrimaryColor,
-                            ),
-                            IconButton(
-                              icon: Icon(Icons.playlist_add),
-                              onPressed: () {},
-                              color: kPrimaryColor,
-                            ),
-                            IconButton(
-                              icon: Icon(Icons.share),
-                              onPressed: () {},
-                              color: kPrimaryColor,
-                            ),
-                            IconButton(
-                              icon: Icon(Icons.share),
-                              onPressed: () {},
-                              color: Theme.of(context).cardColor,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                    Positioned(
-                      right: kPaddingM,
-                      top: 120,
-                      child: Container(
-                        width: 60.0,
-                        height: 60.0,
-                        decoration: new BoxDecoration(
-                          color: kPrimaryColor,
-                          borderRadius:
-                              new BorderRadius.all(new Radius.circular(50.0)),
-                          border: new Border.all(
-                            color: Theme.of(context).cardColor,
-                            width: 4.0,
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  IconButton(
+                                    icon: Icon(Icons.file_download),
+                                    onPressed: () {},
+                                    color: kPrimaryColor,
+                                  ),
+                                  IconButton(
+                                    icon: Icon(Icons.playlist_add),
+                                    onPressed: () {},
+                                    color: kPrimaryColor,
+                                  ),
+                                  IconButton(
+                                    icon: Icon(Icons.share),
+                                    onPressed: () {},
+                                    color: kPrimaryColor,
+                                  ),
+                                  IconButton(
+                                    icon: Icon(Icons.share),
+                                    onPressed: () {},
+                                    color: Theme.of(context).cardColor,
+                                  ),
+                                ],
+                              )
+                            ],
                           ),
-                        ),
-                        child: Icon(
-                          Icons.play_arrow,
-                          size: kPaddingL,
-                          color: kWhite,
-                        ),
+                          Positioned(
+                            right: kPaddingM,
+                            top: 120,
+                            child: Container(
+                              width: 60.0,
+                              height: 60.0,
+                              decoration: new BoxDecoration(
+                                color: kPrimaryColor,
+                                borderRadius: new BorderRadius.all(
+                                    new Radius.circular(50.0)),
+                                border: new Border.all(
+                                  color: Theme.of(context).cardColor,
+                                  width: 4.0,
+                                ),
+                              ),
+                              child: Icon(
+                                Icons.play_arrow,
+                                size: kPaddingL,
+                                color: kWhite,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: kPaddingM),
+                        child: Text(episode.description),
+                      )
+                    ],
+                  ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: kPaddingM),
-                  child: Text(episode.description),
-                )
-              ],
-            ),
-          );
-        },
+              );
+            },
+          ),
+        ),
       ),
     );
     // return Container(
