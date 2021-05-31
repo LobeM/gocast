@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gocast/blocs/auth/auth_bloc.dart';
 import 'package:gocast/configs/app_globals.dart';
+import 'package:gocast/configs/routes.dart';
 import 'package:gocast/data/models/bottom_bar_item_model.dart';
 import 'package:gocast/main.dart';
-import 'package:gocast/screens/explore/explore.dart';
-import 'package:gocast/screens/library/library.dart';
-import 'package:gocast/screens/profile/profile.dart';
 import 'package:gocast/utils/bottom_bar_items.dart';
 import 'package:gocast/utils/string.dart';
 
@@ -57,17 +55,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
           return IndexedStack(
             index: _selectedIndex,
             children: [
-              ExploreScreen(
-                  key: getIt.get<AppGlobals>().globalKeyExploreScreen),
-              // if (getIt.get<AppGlobals>().user != null)
-              //   LibraryScreen()
-              // else
-              LibraryScreen(),
-              // if (getIt.get<AppGlobals>().user != null)
-              //   ProfileScreen()
-              // else
-              ProfileScreen()
-              // SignInScreen(),
+              Navigator(onGenerateRoute: Routes().generateExploreRoute),
+              Navigator(onGenerateRoute: Routes().generateLibraryRoute),
+              Navigator(onGenerateRoute: Routes().generateProfileRoute),
             ],
           );
         },
