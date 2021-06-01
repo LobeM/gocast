@@ -1,10 +1,14 @@
 PODS:
+  - audio_session (0.0.1):
+    - Flutter
   - Flutter (1.0.0)
   - flutter_is_emulator (0.0.1):
     - Flutter
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - just_audio (0.0.1):
+    - Flutter
   - path_provider (0.0.1):
     - Flutter
   - share (0.0.1):
@@ -16,8 +20,10 @@ PODS:
     - FMDB (>= 2.7.5)
 
 DEPENDENCIES:
+  - audio_session (from `.symlinks/plugins/audio_session/ios`)
   - Flutter (from `Flutter`)
   - flutter_is_emulator (from `.symlinks/plugins/flutter_is_emulator/ios`)
+  - just_audio (from `.symlinks/plugins/just_audio/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - share (from `.symlinks/plugins/share/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
@@ -28,10 +34,14 @@ SPEC REPOS:
     - FMDB
 
 EXTERNAL SOURCES:
+  audio_session:
+    :path: ".symlinks/plugins/audio_session/ios"
   Flutter:
     :path: Flutter
   flutter_is_emulator:
     :path: ".symlinks/plugins/flutter_is_emulator/ios"
+  just_audio:
+    :path: ".symlinks/plugins/just_audio/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
   share:
@@ -42,9 +52,11 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/sqflite/ios"
 
 SPEC CHECKSUMS:
+  audio_session: 4f3e461722055d21515cf3261b64c973c062f345
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
   flutter_is_emulator: b1d882329a081ea30e0e335f1dbe782f5a34242a
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  just_audio: baa7252489dbcf47a4c7cc9ca663e9661c99aafa
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   share: 0b2c3e82132f5888bccca3351c504d0003b3b410
   shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d

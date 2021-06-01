@@ -32,21 +32,21 @@ dependencies:
   # Widgets that make it easy to integrate blocs and cubits into Flutter.
   flutter_bloc: ^6.1.2
   # Flutter plugin for reading and writing simple key-value pairs. Wraps NSUserDefaults on iOS and SharedPreferences on Android.
-  shared_preferences: ^0.5.12+4
+  shared_preferences: ^2.0.6
   # Introduction/Onboarding package for flutter app with some customizations possibilities.
   introduction_screen: ^1.0.9
   # A widget provided to the flutter scroll component drop-down refresh and pull up load.
   pull_to_refresh: ^1.6.4
   # Flutter library to load and cache network images. Can also be used with placeholder and error widgets.
-  cached_network_image: ^2.5.0
+  cached_network_image: ^3.0.0
   # Flutter plugin for sharing content via the platform share UI, using the ACTION_SEND intent on Android and UIActivityViewController on iOS.
   share: ^0.6.5+4
   # A composable, Future-based library for making HTTP requests.
-  http: ^0.12.2
+  http: ^0.13.3
   # Provides APIs for debugging and error logging.
-  logging: ^0.11.4
+  logging: ^1.0.1
   # Native dart package for logging appenders usable with the logging package.
-  logging_appenders: ^0.4.3+1
+  logging_appenders: ^1.0.0
   # Dart implementation of sprintf.
   sprintf: ^5.0.0
   # Plugin to detect whether the current device is an emulator or a simulator.
@@ -56,11 +56,13 @@ dependencies:
   # Being able to compare objects in Dart often involves having to override the == operator as well as hashCode.
   equatable: ^2.0.0
   # Draw SVG (and some Android VectorDrawable (XML)) files on a Flutter Widget.
-  flutter_svg: ^0.19.3
+  flutter_svg: ^0.22.0
   # A flutter list that allows scrolling to a specific item in the list.
   scrollable_positioned_list: ^0.1.10
   # Widget that only shows the first lines of a text and adds a link to expand the full text.
   expandable_text: ^2.1.0
+  # A feature-rich audio player for Flutter. Loop, clip and concatenate any sound from any source (asset/file/URL/stream) in a variety of audio formats with gapless playback.
+  just_audio: ^0.7.5
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
