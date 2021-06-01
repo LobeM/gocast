@@ -94,17 +94,22 @@ class _PodcastScreenState extends State<PodcastScreen> {
                   ],
                 ),
               ),
-              for (int i = 0; i < _podcast.episodes.length; i++)
-                Column(
-                  children: [
-                    EpisodeListItem(
-                      podcast: _podcast,
-                      episodeId: _podcast.episodes[i].id,
-                      viewType: EpisodeListItemViewType.basicEpisode1,
-                    ),
-                    Divider()
-                  ],
-                ),
+              Expanded(
+                child: ListView.builder(
+                    itemCount: _podcast.episodes.length,
+                    itemBuilder: (BuildContext context, int i) {
+                      return Column(
+                        children: [
+                          EpisodeListItem(
+                            podcast: _podcast,
+                            episodeId: _podcast.episodes[i].id,
+                            viewType: EpisodeListItemViewType.basicEpisode1,
+                          ),
+                          Divider()
+                        ],
+                      );
+                    }),
+              ),
             ],
           ),
         ),
