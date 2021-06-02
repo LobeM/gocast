@@ -11,21 +11,24 @@
                 "title": "Blood Money",
                 "description": "The United States is one of the few countries that lets companies pay people for their blood plasma. Why? | Subscribe to our weekly newsletter here.",
                 "duration" : 25,
-                "upload_date": "2021-05-14T11:10:43Z"
+                "upload_date": "2021-05-14T11:10:43Z",
+                "url":"https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3"
             },
             {
                 "id": 2,
                 "title": "Hot Cheetos",
                 "description": "A janitor walks out of a chip factory with a bag of dustless Cheetos and changes the global snack game forever. | Subscribe to our weekly newsletter here.",
                 "duration" : 24,
-                "upload_date": "2021-05-13T11:00:00Z"
+                "upload_date": "2021-05-13T11:00:00Z",
+                "url": "https://s3.amazonaws.com/scifri-segments/scifri201711241.mp3"
             },
             {
                 "id": 3,
                 "title": "Emission Impossible",
                 "description": "Carbon offsets have become a popular tool to combat climate change. But how effective are they? | Subscribe to our weekly newsletter here.",
                 "duration" : 23,
-                "upload_date": "2021-05-08T11:00:00Z"
+                "upload_date": "2021-05-08T11:00:00Z",
+                "url":"https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3"
             }
         ]
     }

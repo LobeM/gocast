@@ -65,12 +65,22 @@ class ControlButtons extends StatelessWidget {
             );
           },
         ),
-        StreamBuilder<SequenceState>(
-          stream: player.sequenceStateStream,
-          builder: (context, snapshot) => IconButton(
-            icon: Icon(Icons.skip_previous),
-            onPressed: player.hasPrevious ? player.seekToPrevious : null,
-          ),
+        StreamBuilder<Duration>(
+          stream: player.positionStream,
+          builder: (BuildContext context, snapshot) {
+            if (snapshot.data == null) {
+              return IconButton(
+                icon: Icon(Icons.replay_30),
+                onPressed: null,
+              );
+            }
+            return IconButton(
+              icon: Icon(Icons.replay_30),
+              onPressed: snapshot.data.inSeconds > 30
+                  ? () => player.seek(player.position - Duration(seconds: 30))
+                  : null,
+            );
+          },
         ),
         StreamBuilder<PlayerState>(
           stream: player.playerStateStream,
@@ -111,8 +121,9 @@ class ControlButtons extends StatelessWidget {
         StreamBuilder<SequenceState>(
           stream: player.sequenceStateStream,
           builder: (context, snapshot) => IconButton(
-            icon: Icon(Icons.skip_next),
-            onPressed: player.hasNext ? player.seekToNext : null,
+            icon: Icon(Icons.forward_30),
+            onPressed: () =>
+                player.seek(player.position + Duration(seconds: 30)),
           ),
         ),
         StreamBuilder<double>(
