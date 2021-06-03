@@ -187,10 +187,12 @@ class _PlayingItemState extends State<PlayingItem> {
                   }
                   if (duration.inMilliseconds.toDouble() == 0) {
                     return LinearProgressIndicator(
+                      backgroundColor: Colors.grey[300],
                       value: 0,
                     );
                   }
                   return LinearProgressIndicator(
+                    backgroundColor: Colors.grey[300],
                     value: (position.inMilliseconds.toDouble() /
                         duration.inMilliseconds.toDouble()),
                   );

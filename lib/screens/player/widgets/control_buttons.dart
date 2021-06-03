@@ -49,7 +49,7 @@ class ControlButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         IconButton(
           icon: Icon(Icons.volume_up),
@@ -71,11 +71,13 @@ class ControlButtons extends StatelessWidget {
             if (snapshot.data == null) {
               return IconButton(
                 icon: Icon(Icons.replay_30),
+                iconSize: 32,
                 onPressed: null,
               );
             }
             return IconButton(
               icon: Icon(Icons.replay_30),
+              iconSize: 32,
               onPressed: snapshot.data.inSeconds > 30
                   ? () => player.seek(player.position - Duration(seconds: 30))
                   : null,
@@ -122,6 +124,7 @@ class ControlButtons extends StatelessWidget {
           stream: player.sequenceStateStream,
           builder: (context, snapshot) => IconButton(
             icon: Icon(Icons.forward_30),
+            iconSize: 32,
             onPressed: () =>
                 player.seek(player.position + Duration(seconds: 30)),
           ),
