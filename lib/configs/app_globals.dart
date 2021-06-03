@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:gocast/configs/app_theme.dart';
 import 'package:gocast/data/models/category_model.dart';
+import 'package:gocast/data/models/podcast_model.dart';
 import 'package:gocast/data/models/user_model.dart';
 
 class AppGlobals {
@@ -50,6 +51,12 @@ class AppGlobals {
 
   /// Is the current locale RTL?
   bool isRTL;
+
+  /// Currently selected podcast
+  PodcastModel selectedPodcast;
+
+  /// Currently selected episode ID
+  int selectedEpisode;
 
   /// The current brightness mode of the host platform.
   Brightness get getPlatformBrightness =>

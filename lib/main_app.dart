@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:gocast/blocs/application/application_bloc.dart';
 import 'package:gocast/blocs/auth/auth_bloc.dart';
 import 'package:gocast/blocs/explore/explore_bloc.dart';
+import 'package:gocast/blocs/player/player_bloc.dart';
 import 'package:gocast/blocs/theme/theme_bloc.dart';
 import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/configs/app_theme.dart';
@@ -22,6 +23,7 @@ ApplicationBloc _applicationBloc;
 AuthBloc _authBloc;
 ThemeBloc _themeBloc;
 ExploreBloc _exploreBloc;
+PlayerBloc _playerBloc;
 
 class MainApp extends StatefulWidget {
   @override
@@ -44,6 +46,7 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
     _authBloc = AuthBloc();
     _themeBloc = ThemeBloc();
     _exploreBloc = ExploreBloc();
+    _playerBloc = PlayerBloc();
 
     _applicationBloc = ApplicationBloc(
       authBloc: _authBloc,
@@ -66,6 +69,7 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
     _authBloc.close();
     _themeBloc.close();
     _exploreBloc.close();
+    _playerBloc.close();
 
     super.dispose();
   }
@@ -92,6 +96,7 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
         BlocProvider<ThemeBloc>(create: (BuildContext context) => _themeBloc),
         BlocProvider<ExploreBloc>(
             create: (BuildContext context) => _exploreBloc),
+        BlocProvider<PlayerBloc>(create: (BuildContext context) => _playerBloc),
       ],
       child: BlocBuilder<ApplicationBloc, ApplicationState>(
         buildWhen:

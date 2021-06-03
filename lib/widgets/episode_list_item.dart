@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gocast/blocs/player/player_bloc.dart';
 import 'package:gocast/configs/constants.dart';
 import 'package:gocast/data/models/episode_model.dart';
 import 'package:gocast/data/models/podcast_model.dart';
@@ -62,14 +64,22 @@ class EpisodeListItem extends StatelessWidget {
           ),
           subtitle: Row(
             children: [
-              Icon(
-                Icons.play_arrow,
-                color: kPrimaryColor,
-              ),
-              SizedBox(width: 8.0),
-              StrutText(
-                episode.duration.toDuration(context),
-                style: Theme.of(context).textTheme.bodyText1,
+              InkWell(
+                onTap: () => BlocProvider.of<PlayerBloc>(context)
+                    .add(SelectedPodcastPlayerEvent(podcast, episodeId)),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.play_arrow,
+                      color: kPrimaryColor,
+                    ),
+                    SizedBox(width: 8.0),
+                    StrutText(
+                      episode.duration.toDuration(context),
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
+                  ],
+                ),
               ),
               Spacer(),
               IconButton(

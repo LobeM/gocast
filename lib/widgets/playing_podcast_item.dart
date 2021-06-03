@@ -40,28 +40,30 @@ class _PlayingItemState extends State<PlayingItem> {
   @override
   void initState() {
     super.initState();
-    _player = AudioPlayer();
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.black,
     ));
-    _init();
   }
 
   Future<void> _init() async {
+    _player = AudioPlayer();
     // Start playing from selected podcast
     int initialIndex = 0;
     List<AudioSource> episodes = [];
-    for (var i = 0; i < widget.podcast.episodes.length; i++) {
-      episodes.add(AudioSource.uri(Uri.parse(widget.podcast.episodes[i].url),
-          tag: AudioMetadata(
-            album: widget.podcast.title,
-            title: widget.podcast.episodes[i].title,
-            artwork: widget.podcast.imageUrl,
-          )));
-      if (widget.podcast.episodes[i].id == widget.episodeId) {
-        initialIndex = i;
+    if (widget.podcast != null) {
+      for (var i = 0; i < widget.podcast.episodes.length; i++) {
+        episodes.add(AudioSource.uri(Uri.parse(widget.podcast.episodes[i].url),
+            tag: AudioMetadata(
+              album: widget.podcast.title,
+              title: widget.podcast.episodes[i].title,
+              artwork: widget.podcast.imageUrl,
+            )));
+        if (widget.podcast.episodes[i].id == widget.episodeId) {
+          initialIndex = i;
+        }
       }
     }
+
     _playlist = ConcatenatingAudioSource(children: episodes);
 
     final session = await AudioSession.instance;
@@ -87,6 +89,10 @@ class _PlayingItemState extends State<PlayingItem> {
 
   @override
   Widget build(BuildContext context) {
+    _init();
+    if (widget.podcast == null) {
+      return Container();
+    }
     EpisodeModel episode =
         widget.podcast.episodes.firstWhere((e) => e.id == widget.episodeId);
     if (episode == null || _player == null) {
