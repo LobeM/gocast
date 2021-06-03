@@ -2,10 +2,12 @@ import 'package:audio_session/audio_session.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/data/models/audio_metadata.dart';
 import 'package:gocast/data/models/episode_model.dart';
 import 'package:gocast/data/models/podcast_model.dart';
 import 'package:gocast/data/models/position_data.dart';
+import 'package:gocast/main.dart';
 import 'package:gocast/screens/player/player.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:rxdart/rxdart.dart';
@@ -21,7 +23,6 @@ class PlayingItem extends StatefulWidget {
 }
 
 class _PlayingItemState extends State<PlayingItem> {
-  AudioPlayer _player;
   ConcatenatingAudioSource _playlist;
 
   void _playingTapped(
@@ -33,7 +34,7 @@ class _PlayingItemState extends State<PlayingItem> {
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
-      builder: (context) => PlayerScreen(_player),
+      builder: (context) => PlayerScreen(getIt.get<AppGlobals>().player),
     );
   }
 
@@ -46,7 +47,6 @@ class _PlayingItemState extends State<PlayingItem> {
   }
 
   Future<void> _init() async {
-    _player = AudioPlayer();
     // Start playing from selected podcast
     int initialIndex = 0;
     List<AudioSource> episodes = [];
@@ -69,22 +69,22 @@ class _PlayingItemState extends State<PlayingItem> {
     final session = await AudioSession.instance;
     await session.configure(AudioSessionConfiguration.speech());
     // Listen to errors during playback.
-    _player.playbackEventStream.listen((event) {},
+    getIt.get<AppGlobals>().player.playbackEventStream.listen((event) {},
         onError: (Object e, StackTrace stackTrace) {
       print('A stream error occurred: $e');
     });
     try {
-      await _player.setAudioSource(_playlist, initialIndex: initialIndex);
+      await getIt
+          .get<AppGlobals>()
+          .player
+          .setAudioSource(_playlist, initialIndex: initialIndex);
+
+      // Start playing audio imediately ready
+      getIt.get<AppGlobals>().player.play();
     } catch (e) {
       // Catch load errors: 404, invalid url ...
       print("Error loading playlist: $e");
     }
-  }
-
-  @override
-  void dispose() {
-    _player.dispose();
-    super.dispose();
   }
 
   @override
@@ -95,7 +95,7 @@ class _PlayingItemState extends State<PlayingItem> {
     }
     EpisodeModel episode =
         widget.podcast.episodes.firstWhere((e) => e.id == widget.episodeId);
-    if (episode == null || _player == null) {
+    if (episode == null || getIt.get<AppGlobals>().player == null) {
       return Container();
     }
     return Material(
@@ -112,7 +112,7 @@ class _PlayingItemState extends State<PlayingItem> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   StreamBuilder<SequenceState>(
-                    stream: _player.sequenceStateStream,
+                    stream: getIt.get<AppGlobals>().player.sequenceStateStream,
                     builder: (BuildContext context,
                         AsyncSnapshot<SequenceState> snapshot) {
                       final state = snapshot.data;
@@ -142,7 +142,7 @@ class _PlayingItemState extends State<PlayingItem> {
                     },
                   ),
                   StreamBuilder<PlayerState>(
-                    stream: _player.playerStateStream,
+                    stream: getIt.get<AppGlobals>().player.playerStateStream,
                     builder: (BuildContext context,
                         AsyncSnapshot<PlayerState> snapshot) {
                       final PlayerState playerState = snapshot.data;
@@ -155,18 +155,23 @@ class _PlayingItemState extends State<PlayingItem> {
                       } else if (playing != true) {
                         return IconButton(
                           icon: Icon(Icons.play_arrow),
-                          onPressed: _player.play,
+                          onPressed: getIt.get<AppGlobals>().player.play,
                         );
                       } else if (processingState != ProcessingState.completed) {
                         return IconButton(
                           icon: Icon(Icons.pause),
-                          onPressed: _player.pause,
+                          onPressed: getIt.get<AppGlobals>().player.pause,
                         );
                       } else {
                         return IconButton(
                           icon: Icon(Icons.replay),
-                          onPressed: () => _player.seek(Duration.zero,
-                              index: _player.effectiveIndices.first),
+                          onPressed: () => getIt.get<AppGlobals>().player.seek(
+                              Duration.zero,
+                              index: getIt
+                                  .get<AppGlobals>()
+                                  .player
+                                  .effectiveIndices
+                                  .first),
                         );
                       }
                     },
@@ -176,13 +181,13 @@ class _PlayingItemState extends State<PlayingItem> {
             ),
           ),
           StreamBuilder<Duration>(
-            stream: _player.durationStream,
+            stream: getIt.get<AppGlobals>().player.durationStream,
             builder: (context, snapshot) {
               final duration = snapshot.data ?? Duration.zero;
               return StreamBuilder<PositionData>(
                 stream: Rx.combineLatest2<Duration, Duration, PositionData>(
-                    _player.positionStream,
-                    _player.bufferedPositionStream,
+                    getIt.get<AppGlobals>().player.positionStream,
+                    getIt.get<AppGlobals>().player.bufferedPositionStream,
                     (position, bufferedPosition) =>
                         PositionData(position, bufferedPosition)),
                 builder: (context, snapshot) {

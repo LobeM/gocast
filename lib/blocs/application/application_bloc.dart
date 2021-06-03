@@ -10,6 +10,7 @@ import 'package:gocast/generated/l10n.dart';
 import 'package:gocast/main.dart';
 import 'package:gocast/utils/app_preferences.dart';
 import 'package:gocast/utils/string.dart';
+import 'package:just_audio/just_audio.dart';
 
 part 'application_event.dart';
 part 'application_state.dart';
@@ -102,6 +103,7 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
     // Load any settings
     getIt.get<AppGlobals>().categories =
         await const PodcastRepository().getCategories();
+    getIt.get<AppGlobals>().player = AudioPlayer();
 
     yield LoadSettingsSuccessApplicationState();
   }

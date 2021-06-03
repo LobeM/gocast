@@ -22,6 +22,9 @@ class PlayerBloc extends Bloc<PlayerEvent, PlayerState> {
     getIt.get<AppGlobals>().selectedPodcast = event.podcast;
     getIt.get<AppGlobals>().selectedEpisode = event.episodeId;
 
+    // Stops any playing that was happening before
+    getIt.get<AppGlobals>().player.stop();
+
     yield SelectedPodcastSuccessPlayerState();
   }
 }

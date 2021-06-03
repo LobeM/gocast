@@ -7,6 +7,7 @@ import 'package:gocast/configs/app_theme.dart';
 import 'package:gocast/data/models/category_model.dart';
 import 'package:gocast/data/models/podcast_model.dart';
 import 'package:gocast/data/models/user_model.dart';
+import 'package:just_audio/just_audio.dart';
 
 class AppGlobals {
   factory AppGlobals() => instance;
@@ -57,6 +58,9 @@ class AppGlobals {
 
   /// Currently selected episode ID
   int selectedEpisode;
+
+  /// App audio player
+  AudioPlayer player;
 
   /// The current brightness mode of the host platform.
   Brightness get getPlatformBrightness =>

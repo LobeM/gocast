@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gocast/blocs/player/player_bloc.dart';
 import 'package:gocast/configs/constants.dart';
 import 'package:gocast/data/models/episode_model.dart';
 import 'package:gocast/data/models/podcast_model.dart';
@@ -191,22 +193,30 @@ class EpisodeBottomSheet extends StatelessWidget {
                           Positioned(
                             right: kPaddingM,
                             top: 120,
-                            child: Container(
-                              width: 60.0,
-                              height: 60.0,
-                              decoration: new BoxDecoration(
-                                color: kPrimaryColor,
-                                borderRadius: new BorderRadius.all(
-                                    new Radius.circular(50.0)),
-                                border: new Border.all(
-                                  color: Theme.of(context).cardColor,
-                                  width: 4.0,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.of(context).pop();
+                                BlocProvider.of<PlayerBloc>(context).add(
+                                    SelectedPodcastPlayerEvent(
+                                        podcast, episodeId));
+                              },
+                              child: Container(
+                                width: 60.0,
+                                height: 60.0,
+                                decoration: new BoxDecoration(
+                                  color: kPrimaryColor,
+                                  borderRadius: new BorderRadius.all(
+                                      new Radius.circular(50.0)),
+                                  border: new Border.all(
+                                    color: Theme.of(context).cardColor,
+                                    width: 4.0,
+                                  ),
                                 ),
-                              ),
-                              child: Icon(
-                                Icons.play_arrow,
-                                size: kPaddingL,
-                                color: kWhite,
+                                child: Icon(
+                                  Icons.play_arrow,
+                                  size: kPaddingL,
+                                  color: kWhite,
+                                ),
                               ),
                             ),
                           ),
@@ -226,35 +236,5 @@ class EpisodeBottomSheet extends StatelessWidget {
         ),
       ),
     );
-    // return Container(
-    //   padding: EdgeInsets.only(
-    //     left: kPaddingM,
-    //     right: kPaddingM,
-    //     bottom: kPaddingL,
-    //   ),
-    //   decoration: BoxDecoration(
-    //     color: Theme.of(context).cardColor,
-    //     borderRadius: const BorderRadius.only(
-    //       topLeft: Radius.circular(kCardRadius),
-    //       topRight: Radius.circular(kCardRadius),
-    //     ),
-    //   ),
-    //   child: Column(
-    //     mainAxisSize: MainAxisSize.min,
-    //     children: [
-    //       _buildHandle(context),
-    //       Row(
-    //         children: [
-    //           CachedNetworkImage(
-    //             imageUrl: podcast.imageUrl,
-    //             height: 100,
-    //             width: 100,
-    //           )
-    //         ],
-    //       ),
-    //       Text(episode.description),
-    //     ],
-    //   ),
-    // );
   }
 }

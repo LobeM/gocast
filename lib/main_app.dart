@@ -71,6 +71,8 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
     _exploreBloc.close();
     _playerBloc.close();
 
+    getIt.get<AppGlobals>().player.dispose();
+
     super.dispose();
   }
 
