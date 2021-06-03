@@ -109,7 +109,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               },
             ),
           ),
-          PlayingItem(podcast: PodcastModel.fromJson(json), episodeId: 1),
+          PlayingItem(podcast: PodcastModel.fromJson(json), episodeId: 2),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

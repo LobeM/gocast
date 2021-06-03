@@ -48,16 +48,21 @@ class _PlayingItemState extends State<PlayingItem> {
   }
 
   Future<void> _init() async {
-    _playlist = ConcatenatingAudioSource(
-      children: widget.podcast.episodes
-          .map((episode) => AudioSource.uri(Uri.parse(episode.url),
-              tag: AudioMetadata(
-                album: widget.podcast.title,
-                title: episode.title,
-                artwork: widget.podcast.imageUrl,
-              )))
-          .toList(),
-    );
+    // Start playing from selected podcast
+    int initialIndex = 0;
+    List<AudioSource> episodes = [];
+    for (var i = 0; i < widget.podcast.episodes.length; i++) {
+      episodes.add(AudioSource.uri(Uri.parse(widget.podcast.episodes[i].url),
+          tag: AudioMetadata(
+            album: widget.podcast.title,
+            title: widget.podcast.episodes[i].title,
+            artwork: widget.podcast.imageUrl,
+          )));
+      if (widget.podcast.episodes[i].id == widget.episodeId) {
+        initialIndex = i;
+      }
+    }
+    _playlist = ConcatenatingAudioSource(children: episodes);
 
     final session = await AudioSession.instance;
     await session.configure(AudioSessionConfiguration.speech());
@@ -67,7 +72,7 @@ class _PlayingItemState extends State<PlayingItem> {
       print('A stream error occurred: $e');
     });
     try {
-      await _player.setAudioSource(_playlist);
+      await _player.setAudioSource(_playlist, initialIndex: initialIndex);
     } catch (e) {
       // Catch load errors: 404, invalid url ...
       print("Error loading playlist: $e");
