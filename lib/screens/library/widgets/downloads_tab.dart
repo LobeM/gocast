@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:gocast/configs/constants.dart';
 import 'package:gocast/data/models/podcast_model.dart';
+import 'package:gocast/generated/l10n.dart';
 import 'package:gocast/widgets/podcast_list_item.dart';
 import 'package:gocast/widgets/shimmer_box.dart';
 
@@ -14,6 +16,8 @@ class DownloadsTab extends StatefulWidget {
 }
 
 class _DownloadsTabState extends State<DownloadsTab> {
+  final SlidableController _slideController = SlidableController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,9 +27,21 @@ class _DownloadsTabState extends State<DownloadsTab> {
                 .map(
                   (PodcastModel item) => Column(
                     children: [
-                      PodcastListItem(
-                        podcast: item,
-                        viewType: PodcastListItemViewType.downloadEpisode,
+                      Slidable(
+                        controller: _slideController,
+                        actionPane: const SlidableDrawerActionPane(),
+                        child: PodcastListItem(
+                          podcast: item,
+                          viewType: PodcastListItemViewType.downloadEpisode,
+                        ),
+                        secondaryActions: <Widget>[
+                          IconSlideAction(
+                            caption: 'delete',
+                            color: Colors.red,
+                            icon: Icons.delete,
+                            onTap: () {},
+                          ),
+                        ],
                       ),
                       Divider(),
                     ],
