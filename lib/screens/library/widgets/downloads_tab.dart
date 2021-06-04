@@ -25,7 +25,7 @@ class _DownloadsTabState extends State<DownloadsTab> {
                     children: [
                       PodcastListItem(
                         podcast: item,
-                        viewType: PodcastListItemViewType.basicEpisode,
+                        viewType: PodcastListItemViewType.downloadEpisode,
                       ),
                       Divider(),
                     ],

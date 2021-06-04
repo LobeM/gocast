@@ -103,7 +103,7 @@ class _PodcastScreenState extends State<PodcastScreen> {
                           EpisodeListItem(
                             podcast: _podcast,
                             episodeId: _podcast.episodes[i].id,
-                            viewType: EpisodeListItemViewType.basicEpisode1,
+                            viewType: EpisodeListItemViewType.basic1,
                           ),
                           Divider()
                         ],
