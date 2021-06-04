@@ -1,4 +1,3 @@
-import 'package:audio_session/audio_session.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -23,8 +22,6 @@ class PlayingItem extends StatefulWidget {
 }
 
 class _PlayingItemState extends State<PlayingItem> {
-  ConcatenatingAudioSource _playlist;
-
   void _playingTapped(
     BuildContext context,
     PodcastModel podcast,
@@ -46,50 +43,8 @@ class _PlayingItemState extends State<PlayingItem> {
     ));
   }
 
-  Future<void> _init() async {
-    // Start playing from selected podcast
-    int initialIndex = 0;
-    List<AudioSource> episodes = [];
-    if (widget.podcast != null) {
-      for (var i = 0; i < widget.podcast.episodes.length; i++) {
-        episodes.add(AudioSource.uri(Uri.parse(widget.podcast.episodes[i].url),
-            tag: AudioMetadata(
-              album: widget.podcast.title,
-              title: widget.podcast.episodes[i].title,
-              artwork: widget.podcast.imageUrl,
-            )));
-        if (widget.podcast.episodes[i].id == widget.episodeId) {
-          initialIndex = i;
-        }
-      }
-    }
-
-    _playlist = ConcatenatingAudioSource(children: episodes);
-
-    final session = await AudioSession.instance;
-    await session.configure(AudioSessionConfiguration.speech());
-    // Listen to errors during playback.
-    getIt.get<AppGlobals>().player.playbackEventStream.listen((event) {},
-        onError: (Object e, StackTrace stackTrace) {
-      print('A stream error occurred: $e');
-    });
-    try {
-      await getIt
-          .get<AppGlobals>()
-          .player
-          .setAudioSource(_playlist, initialIndex: initialIndex);
-
-      // Start playing audio imediately ready
-      getIt.get<AppGlobals>().player.play();
-    } catch (e) {
-      // Catch load errors: 404, invalid url ...
-      print("Error loading playlist: $e");
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    _init();
     if (widget.podcast == null) {
       return Container();
     }

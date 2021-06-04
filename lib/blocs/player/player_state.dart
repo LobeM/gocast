@@ -9,3 +9,5 @@ abstract class PlayerState {
 class InitialPlayerState extends PlayerState {}
 
 class SelectedPodcastSuccessPlayerState extends PlayerState {}
+
+class InProgressPlayerState extends PlayerState {}
