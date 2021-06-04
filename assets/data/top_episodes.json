@@ -2,7 +2,7 @@
     "data": {
         "top_episodes": [
             {
-                "id": 1,
+                "id": 5,
                 "title": "Even the Rich",
                 "author": "Wondery",
                 "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRtH8AwD1o_aYHUIGjUPJat-G7KU5iQFkuUdbDqGqWcEMryH1A",
@@ -12,12 +12,13 @@
                         "title": "JFK & Jackie | Quun Deb | 1",
                         "description": "Without a guaranteed inheritance, Jackie’s future depends on marrying well. But none of the men in her social set excite her. She’s brilliant, cultured, and endlessly curious – and they just want an adoring housewife. Enter John F. Kennedy, a war hero and man on the rise. He’s unconventional and ambitious – just the man Jackie’s been waiting for. There’s just one catch: he doesn’t want a wife. This is the real story of the private lives of two very public people – America’s royal couple: JFK and Jackie. Listen ad free with Wondery+. Join Wondery+ for exclusives, binges, early access, and ad free listening. Available in the Wondery App. https://wondery.app.link/eventherich. Support us by supporting our sponsors! Awara - Get $350 dollars off PLUS for a limited time $499 dollars worth of FREE accessories. Feel good about your purchase knowing that Awara plants 10 trees with every purchase. Go to awarasleep.com/eventherich.",
                         "duration" : 45,
-                        "upload_date": "2021-03-23T11:00:00Z"
+                        "upload_date": "2021-03-23T11:00:00Z",
+                        "url":"https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3"
                     }
                 ]
             },
             {
-                "id": 2,
+                "id": 6,
                 "title": "The Joe Rogan Experience",
                 "author": "Joe Rogan",
                 "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXqyV5bROPUWxUM89zWkm0cok4clJi4umn7-u0_6hZIEfCS4s",
@@ -27,22 +28,24 @@
                         "title": "#1554 - Kanye West",
                         "description": "Kanye West is a rapper, record producer, fashion designer, and current independent candidate for office in the 2020 United States Presidential Election.",
                         "duration" : 188,
-                        "upload_date": "2020-10-24T12:00:00Z"
+                        "upload_date": "2020-10-24T12:00:00Z",
+                        "url":"https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3"
                     }
                 ]
             },
             {
-                "id": 3,
+                "id": 7,
                 "title": "The Ranveer Show",
                 "author": "BeerBiceps aka Ranveer Allahbadia",
                 "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSAl8CKAt_7TywgFt7bSFuNt0gaWRIzLD0kUFt-yS0dt7QJgD3q",
                 "episodes": [
                     {
-                        "id": 1,
+                        "id": 2,
                         "title": "100th Episode Special - Manifest Your Dreams 🙏 | The Ranveer Show 100",
                         "description": "We are on the 100th episode of The Ranveer Show. I can’t thank you guys enough for supporting me on this journey. This episode is a gift to you all for being the greatest. I often see these comments from every 20 something year old trying to seek clarity or asking me how I did what I did. Here’s a glimpse at my journey from my childhood to adulthood. I grew up in an extremely spiritual family which led me to the most powerful spiritual person at a very young age. Although I had a shadow of spirituality, the external world got me to some very bad times growing up. Alcohol, Marijuana, teachers insulting me because I was a fitness freak and a lot more but through the power of manifestation and the power of self-belief, I got here and created this magnificent channel and podcast. 100th episode of The Ranveer Show, answering the most asked question, how to seek clarity and achieve whatever you want in life.",
                         "duration" : 31,
-                        "upload_date": "2020-10-20T12:00:00Z"
+                        "upload_date": "2020-10-20T12:00:00Z",
+                        "url": "https://s3.amazonaws.com/scifri-segments/scifri201711241.mp3"
                     }
                 ]
             }

@@ -1,0 +1,35 @@
+{
+    "data": {
+        "id": 5,
+        "title": "Even the Rich",
+        "author": "Wondery",
+        "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRtH8AwD1o_aYHUIGjUPJat-G7KU5iQFkuUdbDqGqWcEMryH1A",
+        "description": "Our lives can be crazy, but you can take a break from it all with Wondery’s new series, Even the Rich, where co-hosts Brooke Siffrinn and Aricia Skidmore-Williams pull back the curtain and chat about someone else’s craziness for a change. They tell stories about some of the greatest family dynasties in history, from the Murdochs to the Royals to the Carters (Jay-Z and Beyoncé, that is). Because as Queen Elizabeth once said, “A good gossip is a wonderful tonic.”",
+        "episodes": [
+            {
+                "id": 1,
+                "title": "JFK & Jackie | Quun Deb | 1",
+                "description": "Without a guaranteed inheritance, Jackie’s future depends on marrying well. But none of the men in her social set excite her. She’s brilliant, cultured, and endlessly curious – and they just want an adoring housewife. Enter John F. Kennedy, a war hero and man on the rise. He’s unconventional and ambitious – just the man Jackie’s been waiting for. There’s just one catch: he doesn’t want a wife. This is the real story of the private lives of two very public people – America’s royal couple: JFK and Jackie. Listen ad free with Wondery+. Join Wondery+ for exclusives, binges, early access, and ad free listening. Available in the Wondery App. https://wondery.app.link/eventherich. Support us by supporting our sponsors! Awara - Get $350 dollars off PLUS for a limited time $499 dollars worth of FREE accessories. Feel good about your purchase knowing that Awara plants 10 trees with every purchase. Go to awarasleep.com/eventherich.",
+                "duration" : 45,
+                "upload_date": "2021-03-23T11:00:00Z",
+                "url":"https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3"
+            },
+            {
+                "id": 2,
+                "title": "The Making of Madonna | Blonde Ambition | 1",
+                "description": "How does a simple Catholic girl from Michigan become a New York star? For the one and only Madonna, the answer is simple: by any means necessary.\n\nListen ad free with Wondery+. Join Wondery+ for exclusives, binges, early access, and ad free listening. Available in the Wondery App https://wondery.app.link/eventherich.\n\nSupport us by supporting our sponsors!\n\nParade - Get 25% off your order of over $40 dollars at yourparade.com/rich with code RICH.\n\nBetter Help - You can get 10% off your first month at betterhelp.com/rich.\n\nReliefband - Got to reliefband.com and use promo code RICH for 20% off plus FREE shipping.",
+                "duration" : 45,
+                "upload_date": "2021-06-02T11:00:00Z",
+                "url": "https://s3.amazonaws.com/scifri-segments/scifri201711241.mp3"
+            },
+            {
+                "id": 3,
+                "title": "Introducing: BADLANDS - Hollywoodland",
+                "description": "BADLANDS is a new true-crime anthology podcast from Jake Brennan, creator and host of the award-winning music and true crime podcast DISGRACELAND.\n\nSeason One of BADLANDS, entitled “Hollywoodland,” explores the true crimes and scandalous careers of Hollywood’s most infamous stars. New episodes detail the mysterious death of Marilyn Monroe, Bruce Lee’s relationship with Hong Kong street fighters, John Holmes’ role in the bloody Wonderland Murders, and the wild rise, fall, and rise again of a cocaine and acid fueled Dennis Hopper as well as stories about River Phoenix, original Superman George Reeves, disgraced silent film superstar Fatty Arbuckle, Natalie Wood, and Lana Turner.",
+                "duration" : 4,
+                "upload_date": "2021-06-01T11:00:00Z",
+                "url":"https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3"
+            }
+        ]
+    }
+}

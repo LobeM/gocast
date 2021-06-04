@@ -1,0 +1,35 @@
+{
+    "data": {
+        "id": 7,
+        "title": "The Ranveer Show",
+        "author": "BeerBiceps aka Ranveer Allahbadia",
+        "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSAl8CKAt_7TywgFt7bSFuNt0gaWRIzLD0kUFt-yS0dt7QJgD3q",
+        "description": "Ranveer Allahbadia aka BeerBiceps brings you #TheRanveerShow. Every episode has been designed to bring you some kind of value add. Life is a never ending self improvement game - whether it's health, career guidance, lifestyle advice or just plain old inspiration... Each episode will charge you up in some way. We deep dive into some of the world's most intelligent, most successful minds in order to mine out the diamonds they've created over the course of their lives. Bollywood stars, athletes, entrepreneurs and all kinds of motivational human beings - featured on India's smartest podcast.",
+        "episodes": [
+            {
+                "id": 1,
+                "title": "College Dropout To A Successful Entrepreneur ft. Sahil Lavingia | The Ranveer Show 114",
+                "description": "Sahil Lavingia is the founder of Gumroad, a genius designer, an entrepreneur since the age of 16, and the 2nd ever employee at Pinterest!\n\nHe's known to bring outstanding ideas to the table and executing them from the ground level. Comes from very humble beginnings and has seen the face of failure and still rose like a phoenix.\n\nIn today's episode, he talks about the ups and downs of heading a start-up and never giving up.\n\nGoing a layer deeper with his personal stories and the importance of being self-sustainable, and how execution is more critical than ideation.\n\nHope this conversation gives a spark to the entrepreneur in you.\nTune into the deep conversation between Sahil Lavingia & Ranveer Allahbadia.",
+                "duration" : 58,
+                "upload_date": "2021-05-25T11:00:00Z",
+                "url":"https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3"
+            },
+            {
+                "id": 2,
+                "title": "100th Episode Special - Manifest Your Dreams 🙏 | The Ranveer Show 100",
+                "description": "We are on the 100th episode of The Ranveer Show. I can’t thank you guys enough for supporting me on this journey. This episode is a gift to you all for being the greatest. I often see these comments from every 20 something year old trying to seek clarity or asking me how I did what I did. Here’s a glimpse at my journey from my childhood to adulthood. I grew up in an extremely spiritual family which led me to the most powerful spiritual person at a very young age. Although I had a shadow of spirituality, the external world got me to some very bad times growing up. Alcohol, Marijuana, teachers insulting me because I was a fitness freak and a lot more but through the power of manifestation and the power of self-belief, I got here and created this magnificent channel and podcast. 100th episode of The Ranveer Show, answering the most asked question, how to seek clarity and achieve whatever you want in life.",
+                "duration" : 31,
+                "upload_date": "2021-05-21T11:00:00Z",
+                "url": "https://s3.amazonaws.com/scifri-segments/scifri201711241.mp3"
+            },
+            {
+                "id": 3,
+                "title": "Aliens, Time Travel & Parallel Universes ft. Abhijit Chavda | The Ranveer Show 112",
+                "description": "Abhijit Chawda is a Theoretical Physicist, Technologist, History & Geopolitics researcher, and writer. This is part 2 of our mind-bending podcast. Part 1 was an introduction to what goes around our universe. A deeper and more mind-blown knowledge, packed into this episode.\n\nFrom Aliens to time travel to multi & parallel universe, Abhijit Chawda has answered all these questions and shared more unknown secrets of our universe and our solar system that you never knew.\n\nFor every space nerd and science geek, don’t miss out on this one as we unravel some of the most interesting topics in the simplest way possible.",
+                "duration" : 27,
+                "upload_date": "2021-05-18T11:00:00Z",
+                "url":"https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3"
+            }
+        ]
+    }
+}

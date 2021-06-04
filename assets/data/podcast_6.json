@@ -1,0 +1,35 @@
+{
+    "data": {
+        "id": 6,
+        "title": "The Joe Rogan Experience",
+        "author": "Joe Rogan",
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXqyV5bROPUWxUM89zWkm0cok4clJi4umn7-u0_6hZIEfCS4s",
+        "description": "Conduit to the Gaian Mind",
+        "episodes": [
+            {
+                "id": 1,
+                "title": "#1554 - Kanye West",
+                "description": "Kanye West is a rapper, record producer, fashion designer, and current independent candidate for office in the 2020 United States Presidential Election.",
+                "duration" : 188,
+                "upload_date": "2020-10-24T12:00:00Z",
+                "url":"https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3"
+            },
+            {
+                "id": 2,
+                "title": "#1109 - Matthew Walker",
+                "description": "Matthew Walker is Professor of Neuroscience and Psychology at the University of California, Berkeley, and Founder and Director of the Center for Human Sleep Science. Check out his book \"\" on Amazon.",
+                "duration" : 123,
+                "upload_date": "2018-04-26T11:00:00Z",
+                "url": "https://s3.amazonaws.com/scifri-segments/scifri201711241.mp3"
+            },
+            {
+                "id": 3,
+                "title": "#1470 - Elon Musk",
+                "description": "Elon Musk is a business magnet, entrepreneur and engineer.",
+                "duration" : 120,
+                "upload_date": "2020-05-07T11:00:00Z",
+                "url":"https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3"
+            }
+        ]
+    }
+}
