@@ -55,42 +55,60 @@ class PodcastHeader extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.black54,
-                          borderRadius: BorderRadius.all(
-                              Radius.circular(kFormFieldsRadius))),
-                      child: Row(
-                        children: [
-                          TextButton(
-                            onPressed: () {},
-                            child: Row(
-                              children: [
-                                Icon(Icons.add, color: kWhite),
-                                Text(
-                                  L10n.of(context).subscribe,
-                                  style: TextStyle(color: kWhite),
-                                ),
-                              ],
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black54,
+                              borderRadius: BorderRadius.all(
+                                  Radius.circular(kFormFieldsRadius)),
+                            ),
+                            child: TextButton(
+                              onPressed: () {},
+                              child: Row(
+                                children: [
+                                  Icon(Icons.add, color: kWhite),
+                                  Text(
+                                    L10n.of(context).subscribe,
+                                    style: TextStyle(color: kWhite),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                          SizedBox(width: kPaddingS),
-                          IconButton(
+                        ),
+                        SizedBox(width: 8.0),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.black54,
+                            borderRadius: BorderRadius.all(
+                                Radius.circular(kFormFieldsRadius)),
+                          ),
+                          child: IconButton(
                             icon: Icon(
                               Icons.public_sharp,
                               color: kWhite,
                             ),
                             onPressed: () {},
                           ),
-                          IconButton(
+                        ),
+                        SizedBox(width: 8.0),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.black54,
+                            borderRadius: BorderRadius.all(
+                                Radius.circular(kFormFieldsRadius)),
+                          ),
+                          child: IconButton(
                             icon: Icon(
                               Icons.share,
                               color: kWhite,
                             ),
                             onPressed: () {},
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     )
                   ],
                 ),

@@ -95,21 +95,33 @@ class _PodcastScreenState extends State<PodcastScreen> {
                 ),
               ),
               Expanded(
-                child: ListView.builder(
-                    itemCount: _podcast.episodes.length,
-                    itemBuilder: (BuildContext context, int i) {
-                      return Column(
-                        children: [
-                          EpisodeListItem(
+                child: Wrap(
+                  children: _podcast.episodes
+                      .map((episode) => EpisodeListItem(
                             podcast: _podcast,
-                            episodeId: _podcast.episodes[i].id,
+                            episodeId: episode.id,
                             viewType: EpisodeListItemViewType.basic1,
-                          ),
-                          Divider()
-                        ],
-                      );
-                    }),
-              ),
+                          ))
+                      .toList(),
+                ),
+              )
+              // Expanded(
+              //   child: ListView.builder(
+              //     itemCount: _podcast.episodes.length,
+              //     itemBuilder: (BuildContext context, int i) {
+              //       return Column(
+              //         children: [
+              //           EpisodeListItem(
+              //             podcast: _podcast,
+              //             episodeId: _podcast.episodes[i].id,
+              //             viewType: EpisodeListItemViewType.basic1,
+              //           ),
+              //           Divider()
+              //         ],
+              //       );
+              //     },
+              //   ),
+              // ),
             ],
           ),
         ),

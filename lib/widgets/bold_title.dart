@@ -29,7 +29,7 @@ class BoldTitle extends StatelessWidget {
           const EdgeInsetsDirectional.only(
             start: kPaddingM,
             end: kPaddingS,
-            top: kPaddingM,
+            top: kPaddingS,
             bottom: kPaddingS,
           ),
       child: Row(
