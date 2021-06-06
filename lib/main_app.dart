@@ -8,6 +8,7 @@ import 'package:gocast/blocs/player/player_bloc.dart';
 import 'package:gocast/blocs/theme/theme_bloc.dart';
 import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/configs/app_theme.dart';
+import 'package:gocast/configs/routes.dart';
 import 'package:gocast/generated/l10n.dart';
 import 'package:gocast/main.dart';
 import 'package:gocast/screens/onboarding.dart';
@@ -145,7 +146,7 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
                     (Locale locale, Iterable<Locale> supportedLocales) =>
                         selectedLocale,
                 navigatorObservers: <NavigatorObserver>[routeObserver],
-                // onGenerateRoute: Routes().generateRoute,
+                onGenerateRoute: Routes().generateRoute,
                 theme: getIt.get<AppTheme>().lightTheme,
                 darkTheme: getIt.get<AppTheme>().darkTheme,
                 home: Directionality(

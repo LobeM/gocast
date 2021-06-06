@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 extension StringExtension on String {
-  bool get isNotNullOrEmpty => this != null || isNotEmpty;
+  bool get isNotNullOrEmpty => this != null && isNotEmpty;
   bool get isNullOrEmpty => this == null || isEmpty;
 
   List<TextSpan> getSpans({String matchWord = '', TextStyle style}) {

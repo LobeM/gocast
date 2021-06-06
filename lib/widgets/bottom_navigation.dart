@@ -6,6 +6,7 @@ import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/configs/routes.dart';
 import 'package:gocast/data/models/bottom_bar_item_model.dart';
 import 'package:gocast/main.dart';
+import 'package:gocast/screens/sign_in.dart';
 import 'package:gocast/utils/bottom_bar_items.dart';
 import 'package:gocast/utils/string.dart';
 import 'package:gocast/widgets/playing_podcast_item.dart';
@@ -61,8 +62,14 @@ class _BottomNavigationState extends State<BottomNavigation> {
                   index: _selectedIndex,
                   children: [
                     Navigator(onGenerateRoute: Routes().generateExploreRoute),
-                    Navigator(onGenerateRoute: Routes().generateLibraryRoute),
-                    Navigator(onGenerateRoute: Routes().generateProfileRoute),
+                    if (getIt.get<AppGlobals>().user != null)
+                      Navigator(onGenerateRoute: Routes().generateLibraryRoute)
+                    else
+                      SignInScreen(),
+                    if (getIt.get<AppGlobals>().user != null)
+                      Navigator(onGenerateRoute: Routes().generateProfileRoute)
+                    else
+                      SignInScreen(),
                   ],
                 );
               },
