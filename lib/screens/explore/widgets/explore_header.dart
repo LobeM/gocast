@@ -22,57 +22,10 @@ class ExploreHeader extends SliverPersistentHeaderDelegate {
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: <Widget>[
-          // add image header
-          // HeaderImage(),
-          // Padding(
-          //   padding: const EdgeInsets.only(
-          //     bottom: kPaddingL,
-          //     left: kPaddingM,
-          //     right: kPaddingM,
-          //     // top: kToolbarHeight + kPaddingM,
-          //     top: kPaddingL,
-          //   ),
-          //   child: Column(
-          //     crossAxisAlignment: CrossAxisAlignment.start,
-          //     children: <Widget>[
-          //       Row(
-          //         children: <Widget>[
-          //           Flexible(
-          //             child: StrutText(
-          //               getIt.get<AppGlobals>().user != null
-          //                   ? L10n.of(context).exploreTitleUser(
-          //                       getIt.get<AppGlobals>().user?.fullName)
-          //                   : L10n.of(context).exploreTitleGuest,
-          //               style: Theme.of(context)
-          //                   .textTheme
-          //                   .headline4
-          //                   .w600
-          //                   .copyWith(color: Colors.blueGrey),
-          //               maxLines: 1,
-          //               overflow: TextOverflow.ellipsis,
-          //             ),
-          //           ),
-          //         ],
-          //       ),
-          //       Expanded(
-          //         child: Padding(
-          //           padding: const EdgeInsets.only(top: kPaddingS),
-          //           child: StrutText(
-          //             L10n.of(context).exploreHeaderSubtitle,
-          //             style: Theme.of(context)
-          //                 .textTheme
-          //                 .headline6
-          //                 .copyWith(color: Colors.blueGrey.withOpacity(0.8)),
-          //           ),
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.only(
-                // bottom: kPaddingM,
+                top: kPaddingM,
                 left: kPaddingS,
                 right: kPaddingS,
               ),
@@ -85,10 +38,15 @@ class ExploreHeader extends SliverPersistentHeaderDelegate {
                     borderRadius: BorderRadius.circular(kBoxDecorationRadius)),
                 elevation: 2,
                 child: Container(
-                  child: FlatButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(kBoxDecorationRadius / 2)),
+                  child: TextButton(
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(kBoxDecorationRadius / 2),
+                        ),
+                      ),
+                    ),
                     onPressed: () {
                       // Switch to search tab
                     },

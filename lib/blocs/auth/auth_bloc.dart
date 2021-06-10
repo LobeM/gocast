@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gocast/blocs/base_bloc.dart';
 import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/data/models/user_model.dart';
+import 'package:gocast/data/repositories/user_repository.dart';
 import 'package:gocast/main.dart';
 
 part 'auth_event.dart';
@@ -31,6 +32,8 @@ class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
     }
   }
 
+  final UserRepository _userRepository = UserRepository();
+
   Stream<AuthState> _mapRequestedNewPasswordRequestedAuthEventToState(
       NewPasswordRequestedAuthEvent event) async* {
     yield ProcessInProgressAuthState();
@@ -46,7 +49,12 @@ class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
     yield ProcessInProgressAuthState();
 
     // Wait for some random time. Simulate net activity ;)
-    await Future<int>.delayed(Duration(seconds: Random().nextInt(2)));
+    // await Future<int>.delayed(Duration(seconds: Random().nextInt(2)));
+    await _userRepository.signUp(
+      fullName: event.fullName,
+      email: event.email,
+      password: event.password,
+    );
 
     add(UserSavedAuthEvent(getIt.get<AppGlobals>().user));
     yield LoginSuccessAuthState();
@@ -55,10 +63,7 @@ class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
   Stream<AuthState> _mapLoginAuthEventToState(
       LoginRequestedAuthEvent event) async* {
     yield ProcessInProgressAuthState();
-
-    // Wait for some random time. Simulate net activity ;)
-    await Future<int>.delayed(Duration(seconds: Random().nextInt(2)));
-
+    await _userRepository.signIn(email: event.email, password: event.password);
     add(UserSavedAuthEvent(getIt.get<AppGlobals>().user));
     yield LoginSuccessAuthState();
   }
@@ -85,7 +90,10 @@ class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
   Stream<AuthState> _mapLogoutAuthEventToState() async* {
     yield ProcessInProgressAuthState();
 
-    add(UserClearedAuthEvent());
+    _userRepository.signOut();
+
+    // add(UserClearedAuthEvent());
+    yield LogoutSuccessAuthState();
   }
 
   Stream<AuthState> _mapClearUserAuthEventToState() async* {}

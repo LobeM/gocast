@@ -128,7 +128,7 @@ class _ExploreScreenState extends State<ExploreScreen>
 
         /// Lets see what's in it and show the results on the screen.
         return AnnotatedRegion<SystemUiOverlayStyle>(
-          value: SystemUiOverlayStyle.dark,
+          value: SystemUiOverlayStyle.light,
           child: Scaffold(
             body: SafeArea(
               child: LoadingOverlay(
@@ -136,7 +136,7 @@ class _ExploreScreenState extends State<ExploreScreen>
                 child: CustomScrollView(
                   slivers: <Widget>[
                     SliverPersistentHeader(
-                      delegate: ExploreHeader(expandedHeight: 65),
+                      delegate: ExploreHeader(expandedHeight: 75),
                       // delegate: ExploreHeader(expandedHeight: 280),
                       pinned: false,
                     ),

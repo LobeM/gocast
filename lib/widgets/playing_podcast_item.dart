@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/data/models/audio_metadata.dart';
 import 'package:gocast/data/models/episode_model.dart';
@@ -38,9 +37,9 @@ class _PlayingItemState extends State<PlayingItem> {
   @override
   void initState() {
     super.initState();
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.black,
-    ));
+    // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    //   statusBarColor: Colors.black,
+    // ));
   }
 
   @override

@@ -37,123 +37,131 @@ class _SignInScreenState extends State<SignInScreen>
 
     if (keyPasswordInput.currentState.validate() &&
         keyEmailInput.currentState.validate()) {
-      /// Perform login
+      BlocProvider.of<AuthBloc>(context).add(LoginRequestedAuthEvent(
+        email: _textEmailController.text.trim(),
+        password: _textPassController.text,
+      ));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: kPaddingM),
-        child: Column(
-          children: [
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  StrutText(
-                    'Sign in to GoCast',
-                    style: Theme.of(context).textTheme.headline5.bold,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: kPaddingM),
-                    child: Row(
-                      children: <Widget>[
-                        StrutText(
-                          'Don\'t have an account? ',
-                          style: Theme.of(context).textTheme.subtitle1,
-                        ),
-                        LinkButton(
-                            onPressed: () =>
-                                Navigator.pushNamed(context, Routes.signUp),
-                            label: 'Sign up now'),
-                      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Sign in'),
+      ),
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: kPaddingM),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: kPaddingM),
+                    StrutText(
+                      'Sign in to GoCast',
+                      style: Theme.of(context).textTheme.headline5.bold,
                     ),
-                  ),
-                  FormLabel(text: 'E-mail'),
-                  ThemeTextInput(
-                    key: keyEmailInput,
-                    controller: _textEmailController,
-                    hintText: 'name@email.com',
-                    focusNode: _focusEmail,
-                    keyboardType: TextInputType.emailAddress,
-                    icon: const Icon(Icons.clear),
-                    textInputAction: TextInputAction.next,
-                    onTapIcon: () async {
-                      await Future<dynamic>.delayed(
-                          const Duration(milliseconds: 100));
-                      _textEmailController.clear();
-                    },
-                    onSubmitted: (String text) => FormUtils.fieldFocusChange(
-                        context, _focusEmail, _focusPass),
-                    validator:
-                        FormValidator.validators(<FormFieldValidator<String>>[
-                      FormValidator.isRequired('Required'),
-                      FormValidator.isEmail('Email format invalid'),
-                    ]),
-                  ),
-                  // const Padding(padding: EdgeInsets.only(top: kPaddingM)),
-                  FormLabel(text: 'Password'),
-                  ThemeTextInput(
-                    key: keyPasswordInput,
-                    hintText: 'Your password',
-                    textInputAction: TextInputAction.done,
-                    onSubmitted: (String text) => _validateForm(),
-                    onTapIcon: () =>
-                        setState(() => _showPassword = !_showPassword),
-                    obscureText: !_showPassword,
-                    icon: Icon(_showPassword
-                        ? Icons.visibility
-                        : Icons.visibility_off),
-                    controller: _textPassController,
-                    focusNode: _focusPass,
-                    validator:
-                        FormValidator.validators(<FormFieldValidator<String>>[
-                      FormValidator.isRequired('Required'),
-                      FormValidator.isMinLength(
-                        length: kMinimalPasswordLength,
-                        errorMessage:
-                            'Min length is $kMinimalPasswordLength characters',
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: kPaddingM),
+                      child: Row(
+                        children: <Widget>[
+                          StrutText(
+                            'Don\'t have an account? ',
+                            style: Theme.of(context).textTheme.subtitle1,
+                          ),
+                          LinkButton(
+                              onPressed: () =>
+                                  Navigator.pushNamed(context, Routes.signUp),
+                              label: 'Sign up now'),
+                        ],
                       ),
-                    ]),
-                  ),
-                  const Padding(padding: EdgeInsets.only(top: kPaddingM)),
-                  BlocBuilder<AuthBloc, AuthState>(
-                    builder: (BuildContext context, AuthState login) {
-                      return BlocListener<AuthBloc, AuthState>(
-                        listener:
-                            (BuildContext context, AuthState loginListener) {
-                          if (loginListener is LoginFailureAuthState) {
-                            showOkAlertDialog(
-                              context: context,
-                              title: 'Oops!',
-                              message: loginListener.message,
-                            );
-                          }
-                        },
-                        child: ThemeButton(
-                          onPressed: () => _validateForm(),
-                          text: 'Login',
-                          showLoading: login is ProcessInProgressAuthState,
-                          disableTouchWhenLoading: true,
-                        ),
-                      );
-                    },
-                  ),
-                  const Padding(padding: EdgeInsets.only(top: kPaddingS)),
-                  Center(
-                    child: TextButton(
-                      onPressed: () =>
-                          Navigator.pushNamed(context, Routes.forgotPassword),
-                      child: Text('Forgot password?'),
                     ),
-                  ),
-                ],
-              ),
+                    FormLabel(text: 'E-mail'),
+                    ThemeTextInput(
+                      key: keyEmailInput,
+                      controller: _textEmailController,
+                      hintText: 'name@email.com',
+                      focusNode: _focusEmail,
+                      keyboardType: TextInputType.emailAddress,
+                      icon: const Icon(Icons.clear),
+                      textInputAction: TextInputAction.next,
+                      onTapIcon: () async {
+                        await Future<dynamic>.delayed(
+                            const Duration(milliseconds: 100));
+                        _textEmailController.clear();
+                      },
+                      onSubmitted: (String text) => FormUtils.fieldFocusChange(
+                          context, _focusEmail, _focusPass),
+                      validator:
+                          FormValidator.validators(<FormFieldValidator<String>>[
+                        FormValidator.isRequired('Required'),
+                        FormValidator.isEmail('Email format invalid'),
+                      ]),
+                    ),
+                    // const Padding(padding: EdgeInsets.only(top: kPaddingM)),
+                    FormLabel(text: 'Password'),
+                    ThemeTextInput(
+                      key: keyPasswordInput,
+                      hintText: 'Your password',
+                      textInputAction: TextInputAction.done,
+                      onSubmitted: (String text) => _validateForm(),
+                      onTapIcon: () =>
+                          setState(() => _showPassword = !_showPassword),
+                      obscureText: !_showPassword,
+                      icon: Icon(_showPassword
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                      controller: _textPassController,
+                      focusNode: _focusPass,
+                      validator:
+                          FormValidator.validators(<FormFieldValidator<String>>[
+                        FormValidator.isRequired('Required'),
+                        FormValidator.isMinLength(
+                          length: kMinimalPasswordLength,
+                          errorMessage:
+                              'Min length is $kMinimalPasswordLength characters',
+                        ),
+                      ]),
+                    ),
+                    const Padding(padding: EdgeInsets.only(top: kPaddingM)),
+                    BlocBuilder<AuthBloc, AuthState>(
+                      builder: (BuildContext context, AuthState login) {
+                        return BlocListener<AuthBloc, AuthState>(
+                          listener:
+                              (BuildContext context, AuthState loginListener) {
+                            if (loginListener is LoginFailureAuthState) {
+                              showOkAlertDialog(
+                                context: context,
+                                title: 'Oops!',
+                                message: loginListener.message,
+                              );
+                            }
+                          },
+                          child: ThemeButton(
+                            onPressed: () => _validateForm(),
+                            text: 'Login',
+                            showLoading: login is ProcessInProgressAuthState,
+                            disableTouchWhenLoading: true,
+                          ),
+                        );
+                      },
+                    ),
+                    const Padding(padding: EdgeInsets.only(top: kPaddingS)),
+                    Center(
+                      child: TextButton(
+                        onPressed: () =>
+                            Navigator.pushNamed(context, Routes.forgotPassword),
+                        child: Text('Forgot password?'),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

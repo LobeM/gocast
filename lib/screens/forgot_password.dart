@@ -86,6 +86,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                             message:
                                 'Secure link to reset your password has been sent to the provided email address.',
                             okLabel: 'Close',
+                            // ignore: missing_return
                             onWillPop: () {
                               Navigator.pop(context);
                             },

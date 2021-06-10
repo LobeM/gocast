@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gocast/configs/constants.dart';
 
-// Full screen loading indicator
 class FullScreenIndicator extends StatelessWidget {
   const FullScreenIndicator({
     Key key,
@@ -18,10 +17,10 @@ class FullScreenIndicator extends StatelessWidget {
       backgroundColor: backgroundColor,
       body: Center(
         child: SizedBox(
-          width: 48.0,
-          height: 48.0,
+          width: 48,
+          height: 48,
           child: CircularProgressIndicator(
-            strokeWidth: 4.0,
+            strokeWidth: 4,
             backgroundColor: color,
           ),
         ),

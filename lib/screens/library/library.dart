@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/data/models/podcast_model.dart';
 import 'package:gocast/data/models/top_tab_model.dart';
@@ -62,28 +63,31 @@ class _LibraryScreenState extends State<LibraryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: <Widget>[
-            SliverAppBar(
-              primary: false,
-              floating: true,
-              pinned: true,
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              flexibleSpace: LibraryTabs(
-                key: getIt.get<AppGlobals>().globalKeyLibraryTabs,
-                libraryTabs: categoryTabs,
-                activeTab: _activeTab,
-                onTap: _onTabTapped,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.light,
+      child: Scaffold(
+        body: SafeArea(
+          child: CustomScrollView(
+            slivers: <Widget>[
+              SliverAppBar(
+                primary: false,
+                floating: true,
+                pinned: true,
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                flexibleSpace: LibraryTabs(
+                  key: getIt.get<AppGlobals>().globalKeyLibraryTabs,
+                  libraryTabs: categoryTabs,
+                  activeTab: _activeTab,
+                  onTap: _onTabTapped,
+                ),
               ),
-            ),
-            SliverList(
-              delegate: SliverChildListDelegate(
-                <Widget>[if (screens.isNotNullOrEmpty) screens[_activeTab]],
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  <Widget>[if (screens.isNotNullOrEmpty) screens[_activeTab]],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

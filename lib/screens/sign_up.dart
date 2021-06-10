@@ -6,7 +6,6 @@ import 'package:gocast/configs/constants.dart';
 import 'package:gocast/utils/async.dart';
 import 'package:gocast/utils/form_utils.dart';
 import 'package:gocast/utils/form_validator.dart';
-import 'package:gocast/widgets/bold_title.dart';
 import 'package:gocast/widgets/form_label.dart';
 import 'package:gocast/widgets/link_button.dart';
 import 'package:gocast/widgets/theme_button.dart';
@@ -48,7 +47,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
     if (keyNameInput.currentState.validate() &&
         keyEmailInput.currentState.validate() &&
         keyPasswordInput.currentState.validate()) {
-      // Login to account
+      BlocProvider.of<AuthBloc>(context).add(UserRegisteredAuthEvent(
+        fullName: _textNameController.text.trim(),
+        email: _textEmailController.text.trim(),
+        password: _textPassController.text,
+      ));
     }
   }
 

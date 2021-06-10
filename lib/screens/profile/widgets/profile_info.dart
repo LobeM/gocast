@@ -18,6 +18,7 @@ class ProfileInfo extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const Padding(padding: EdgeInsets.only(top: kPaddingM)),
                   StrutText(
                     'Lobe Musonda',
                     maxLines: 1,

@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_is_emulator/flutter_is_emulator.dart';
@@ -29,6 +30,9 @@ void main() async {
 
   /// The App's [BlocObserver].
   Bloc.observer = AppObserver();
+
+  // Initialize firebase
+  await Firebase.initializeApp();
 
   // Inflate the MainApp widget.
   runApp(MainApp());
