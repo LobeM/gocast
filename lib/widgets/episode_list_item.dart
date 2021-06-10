@@ -5,6 +5,7 @@ import 'package:gocast/blocs/player/player_bloc.dart';
 import 'package:gocast/configs/constants.dart';
 import 'package:gocast/data/models/episode_model.dart';
 import 'package:gocast/data/models/podcast_model.dart';
+import 'package:gocast/data/repositories/user_repository.dart';
 import 'package:gocast/widgets/episode_bottom_sheet.dart';
 import 'package:gocast/widgets/shimmer_box.dart';
 import 'package:gocast/widgets/strut_text.dart';
@@ -91,20 +92,22 @@ class EpisodeListItem extends StatelessWidget {
                 ),
               ),
               Spacer(),
-              IconButton(
-                icon: Icon(
-                  Icons.playlist_add,
-                  color: kPrimaryColor,
+              if (UserRepository().isSignedIn())
+                IconButton(
+                  icon: Icon(
+                    Icons.playlist_add,
+                    color: kPrimaryColor,
+                  ),
+                  onPressed: () {},
                 ),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.file_download,
-                  color: kPrimaryColor,
+              if (UserRepository().isSignedIn())
+                IconButton(
+                  icon: Icon(
+                    Icons.file_download,
+                    color: kPrimaryColor,
+                  ),
+                  onPressed: () {},
                 ),
-                onPressed: () {},
-              ),
             ],
           ),
         );
@@ -287,20 +290,22 @@ class EpisodeListItem extends StatelessWidget {
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
                       Spacer(),
-                      IconButton(
-                        icon: Icon(
-                          Icons.playlist_add,
-                          color: kPrimaryColor,
+                      if (UserRepository().isSignedIn())
+                        IconButton(
+                          icon: Icon(
+                            Icons.playlist_add,
+                            color: kPrimaryColor,
+                          ),
+                          onPressed: () {},
                         ),
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          Icons.download_rounded,
-                          color: kPrimaryColor,
+                      if (UserRepository().isSignedIn())
+                        IconButton(
+                          icon: Icon(
+                            Icons.file_download,
+                            color: kPrimaryColor,
+                          ),
+                          onPressed: () {},
                         ),
-                        onPressed: () {},
-                      ),
                     ],
                   ),
                 )

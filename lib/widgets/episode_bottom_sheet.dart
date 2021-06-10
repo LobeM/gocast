@@ -5,6 +5,7 @@ import 'package:gocast/blocs/player/player_bloc.dart';
 import 'package:gocast/configs/constants.dart';
 import 'package:gocast/data/models/episode_model.dart';
 import 'package:gocast/data/models/podcast_model.dart';
+import 'package:gocast/data/repositories/user_repository.dart';
 import 'package:gocast/widgets/strut_text.dart';
 import 'package:gocast/utils/text_style.dart';
 import 'package:gocast/utils/int.dart';
@@ -163,19 +164,22 @@ class EpisodeBottomSheet extends StatelessWidget {
                                 ],
                               ),
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment: UserRepository().isSignedIn()
+                                    ? MainAxisAlignment.spaceEvenly
+                                    : MainAxisAlignment.start,
                                 children: [
-                                  IconButton(
-                                    icon: Icon(Icons.file_download),
-                                    onPressed: () {},
-                                    color: kPrimaryColor,
-                                  ),
-                                  IconButton(
-                                    icon: Icon(Icons.playlist_add),
-                                    onPressed: () {},
-                                    color: kPrimaryColor,
-                                  ),
+                                  if (UserRepository().isSignedIn())
+                                    IconButton(
+                                      icon: Icon(Icons.file_download),
+                                      onPressed: () {},
+                                      color: kPrimaryColor,
+                                    ),
+                                  if (UserRepository().isSignedIn())
+                                    IconButton(
+                                      icon: Icon(Icons.playlist_add),
+                                      onPressed: () {},
+                                      color: kPrimaryColor,
+                                    ),
                                   IconButton(
                                     icon: Icon(Icons.share),
                                     onPressed: () {},
