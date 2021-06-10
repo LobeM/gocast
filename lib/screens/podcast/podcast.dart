@@ -60,7 +60,7 @@ class _PodcastScreenState extends State<PodcastScreen> {
                   children: [
                     SizedBox(height: kPaddingS),
                     ExpandableText(
-                      _podcast.description,
+                      _podcast != null ? _podcast.description : '',
                       expandText: L10n.of(context).more,
                       collapseText: L10n.of(context).less,
                       maxLines: 5,
@@ -74,9 +74,11 @@ class _PodcastScreenState extends State<PodcastScreen> {
                 padding: EdgeInsets.symmetric(horizontal: kPaddingM),
                 child: Row(
                   children: [
-                    StrutText(
-                        L10n.of(context).episodeCount(_podcast.episodes.length),
-                        style: Theme.of(context).textTheme.headline6),
+                    if (_podcast != null)
+                      StrutText(
+                          L10n.of(context)
+                              .episodeCount(_podcast.episodes.length),
+                          style: Theme.of(context).textTheme.headline6),
                     Spacer(),
                     PopupMenuButton(
                       icon: Icon(Icons.sort),
@@ -96,32 +98,17 @@ class _PodcastScreenState extends State<PodcastScreen> {
               ),
               Expanded(
                 child: Wrap(
-                  children: _podcast.episodes
-                      .map((episode) => EpisodeListItem(
-                            podcast: _podcast,
-                            episodeId: episode.id,
-                            viewType: EpisodeListItemViewType.basic1,
-                          ))
-                      .toList(),
+                  children: _podcast != null
+                      ? _podcast.episodes
+                          .map((episode) => EpisodeListItem(
+                                podcast: _podcast,
+                                episodeId: episode.id,
+                                viewType: EpisodeListItemViewType.basic1,
+                              ))
+                          .toList()
+                      : [],
                 ),
-              )
-              // Expanded(
-              //   child: ListView.builder(
-              //     itemCount: _podcast.episodes.length,
-              //     itemBuilder: (BuildContext context, int i) {
-              //       return Column(
-              //         children: [
-              //           EpisodeListItem(
-              //             podcast: _podcast,
-              //             episodeId: _podcast.episodes[i].id,
-              //             viewType: EpisodeListItemViewType.basic1,
-              //           ),
-              //           Divider()
-              //         ],
-              //       );
-              //     },
-              //   ),
-              // ),
+              ),
             ],
           ),
         ),

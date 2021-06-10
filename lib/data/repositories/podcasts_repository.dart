@@ -35,7 +35,6 @@ class PodcastRepository {
 
   Future<PodcastModel> getPodcast(int id) async {
     final DataResponseModel rawData = await dataProvider.get('podcast_$id');
-    print('podcast: ${rawData.data}');
     return PodcastModel.fromJson(rawData.data);
   }
 
@@ -62,7 +61,6 @@ class PodcastRepository {
   }
 
   Future<List<PodcastModel>> getSubscribedPodcasts() async {
-    print("called subs");
     final DataResponseModel rawData = await dataProvider.get('top_podcasts');
 
     final List<dynamic> _podcasts =

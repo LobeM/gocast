@@ -6,6 +6,7 @@ import 'package:gocast/generated/l10n.dart';
 import 'package:gocast/widgets/blured_image.dart';
 import 'package:gocast/widgets/strut_text.dart';
 import 'package:gocast/utils/text_style.dart';
+import 'package:shimmer/shimmer.dart';
 
 class PodcastHeader extends StatelessWidget {
   final PodcastModel podcast;
@@ -14,6 +15,14 @@ class PodcastHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (podcast == null) {
+      return Shimmer.fromColors(
+        baseColor: Theme.of(context).hoverColor,
+        highlightColor: Theme.of(context).highlightColor,
+        enabled: true,
+        child: Container(color: kWhite),
+      );
+    }
     return Stack(
       alignment: AlignmentDirectional.bottomStart,
       children: [
