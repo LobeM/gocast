@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:gocast/utils/localized_exception_extension.dart';
 
 class UserRepository {
   final FirebaseAuth _firebaseAuth;
@@ -17,18 +18,19 @@ class UserRepository {
     return currentUser != null;
   }
 
-  Future<void> signIn({String email, String password}) async {
+  Future<String> signIn({String email, String password}) async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
+      return null;
     } on FirebaseAuthException catch (e) {
-      print('Sign in error: ${e.message}');
+      return e.toLocalizedString();
     }
   }
 
-  Future<void> signUp({
+  Future<String> signUp({
     String fullName,
     String email,
     String password,
@@ -38,8 +40,9 @@ class UserRepository {
         email: email,
         password: password,
       );
+      return null;
     } on FirebaseAuthException catch (e) {
-      print('Sign up error: ${e.message}');
+      return e.toLocalizedString();
     }
   }
 }

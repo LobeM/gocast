@@ -50,22 +50,33 @@ class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
 
     // Wait for some random time. Simulate net activity ;)
     // await Future<int>.delayed(Duration(seconds: Random().nextInt(2)));
-    await _userRepository.signUp(
+    String res = await _userRepository.signUp(
       fullName: event.fullName,
       email: event.email,
       password: event.password,
     );
 
-    add(UserSavedAuthEvent(getIt.get<AppGlobals>().user));
-    yield LoginSuccessAuthState();
+    // add(UserSavedAuthEvent(getIt.get<AppGlobals>().user));
+    if (res == null) {
+      yield LoginSuccessAuthState();
+    } else {
+      yield RegistrationFailureAuthState(res);
+    }
   }
 
   Stream<AuthState> _mapLoginAuthEventToState(
       LoginRequestedAuthEvent event) async* {
     yield ProcessInProgressAuthState();
-    await _userRepository.signIn(email: event.email, password: event.password);
-    add(UserSavedAuthEvent(getIt.get<AppGlobals>().user));
-    yield LoginSuccessAuthState();
+    String res = await _userRepository.signIn(
+      email: event.email,
+      password: event.password,
+    );
+    // add(UserSavedAuthEvent(getIt.get<AppGlobals>().user));
+    if (res == null) {
+      yield LoginSuccessAuthState();
+    } else {
+      yield LoginFailureAuthState(res);
+    }
   }
 
   Stream<AuthState> _mapSaveUserAuthEventToState(
@@ -90,7 +101,7 @@ class AuthBloc extends BaseBloc<AuthEvent, AuthState> {
   Stream<AuthState> _mapLogoutAuthEventToState() async* {
     yield ProcessInProgressAuthState();
 
-    _userRepository.signOut();
+    await _userRepository.signOut();
 
     // add(UserClearedAuthEvent());
     yield LogoutSuccessAuthState();
