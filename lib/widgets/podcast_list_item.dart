@@ -9,12 +9,14 @@ import 'package:gocast/widgets/shimmer_box.dart';
 import 'package:gocast/widgets/strut_text.dart';
 import 'package:gocast/utils/text_style.dart';
 import 'package:gocast/utils/list.dart';
+import 'package:gocast/utils/string.dart';
 
 enum PodcastListItemViewType {
   block,
   detailEpisode,
   downloadEpisode,
-  basicTitle
+  basicTitle,
+  search,
 }
 
 class PodcastListItem extends StatelessWidget {
@@ -166,6 +168,71 @@ class PodcastListItem extends StatelessWidget {
           title: Text(podcast.title),
           trailing: Icon(Icons.navigate_next),
         );
+
+      case PodcastListItemViewType.search:
+        return InkWell(
+          onTap: () {},
+          child: Container(
+            decoration: BoxDecoration(
+              //color: Theme.of(context).cardColor,
+              border: Border(
+                bottom: BorderSide(
+                  width: 1,
+                  color: Theme.of(context).dividerColor,
+                ),
+              ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsetsDirectional.only(end: kPaddingS),
+                  child: Icon(
+                    Icons.location_on,
+                    color: Theme.of(context).disabledColor,
+                    size: 36,
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: kPaddingM),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          if (wordToStyle.isEmpty)
+                            StrutText(
+                              podcast.title,
+                              style: Theme.of(context).textTheme.subtitle1,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            )
+                          else
+                            RichText(
+                              text: TextSpan(
+                                style: Theme.of(context).textTheme.subtitle1,
+                                children: podcast.title.getSpans(
+                                  matchWord: wordToStyle,
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          // StrutText(
+                          //   sprintf('%s, %s', <String>[location.address, location.city]),
+                          //   style: Theme.of(context).textTheme.bodyText2.copyWith(color: Theme.of(context).hintColor),
+                          //   maxLines: 1,
+                          //   overflow: TextOverflow.ellipsis,
+                          // ),
+                        ]),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+        break;
 
       default:
         return Container();

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/configs/constants.dart';
+import 'package:gocast/data/models/search_session_model.dart';
 import 'package:gocast/generated/l10n.dart';
 import 'package:gocast/main.dart';
+import 'package:gocast/screens/search/widgets/search_podcasts_delegate.dart';
 import 'package:gocast/widgets/strut_text.dart';
 
 /// Delegate for configuring a [SliverPersistentHeader].
@@ -14,6 +16,25 @@ class ExploreHeader extends SliverPersistentHeaderDelegate {
 
   /// The max height of the header
   final double expandedHeight;
+
+  Future<String> _quickSearch(
+      BuildContext context, SearchSessionModel session) async {
+    final String queryString = await showSearch(
+      context: context,
+      delegate: SearchPodcastsDelegate(hintText: 'Search for podcast'),
+      query: session.q,
+    );
+
+    if (queryString == null) {
+      // _searchBloc.add(FilteredListRequestedSearchEvent());
+    } else {
+      // _searchBloc.add(KeywordChangedSearchEvent(queryString));
+    }
+
+    return queryString;
+  }
+
+  SearchSessionModel session = SearchSessionModel();
 
   @override
   Widget build(
@@ -47,9 +68,7 @@ class ExploreHeader extends SliverPersistentHeaderDelegate {
                         ),
                       ),
                     ),
-                    onPressed: () {
-                      // Switch to search tab
-                    },
+                    onPressed: () => _quickSearch(context, session),
                     child: IntrinsicHeight(
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -95,7 +114,7 @@ class ExploreHeader extends SliverPersistentHeaderDelegate {
   ///
   /// This must return a value equal to or less than [maxExtent].
   @override
-  double get minExtent => 50;
+  double get minExtent => 75;
 
   /// Whether this delegate is meaningfully different from the old delegate.
   @override

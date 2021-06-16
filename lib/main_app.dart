@@ -5,6 +5,7 @@ import 'package:gocast/blocs/application/application_bloc.dart';
 import 'package:gocast/blocs/auth/auth_bloc.dart';
 import 'package:gocast/blocs/explore/explore_bloc.dart';
 import 'package:gocast/blocs/player/player_bloc.dart';
+import 'package:gocast/blocs/search/search_bloc.dart';
 import 'package:gocast/blocs/theme/theme_bloc.dart';
 import 'package:gocast/configs/app_globals.dart';
 import 'package:gocast/configs/app_theme.dart';
@@ -22,6 +23,7 @@ final RouteObserver<PageRoute<dynamic>> routeObserver =
 
 ApplicationBloc _applicationBloc;
 AuthBloc _authBloc;
+SearchBloc _searchBloc;
 ThemeBloc _themeBloc;
 ExploreBloc _exploreBloc;
 PlayerBloc _playerBloc;
@@ -45,6 +47,7 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
 
   void _initBlocs() {
     _authBloc = AuthBloc();
+    _searchBloc = SearchBloc();
     _themeBloc = ThemeBloc();
     _exploreBloc = ExploreBloc();
     _playerBloc = PlayerBloc();
@@ -68,6 +71,7 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
 
     _applicationBloc.close();
     _authBloc.close();
+    _searchBloc.close();
     _themeBloc.close();
     _exploreBloc.close();
     _playerBloc.close();
@@ -96,6 +100,7 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
         BlocProvider<ApplicationBloc>(
             create: (BuildContext context) => _applicationBloc),
         BlocProvider<AuthBloc>(create: (BuildContext context) => _authBloc),
+        BlocProvider<SearchBloc>(create: (BuildContext context) => _searchBloc),
         BlocProvider<ThemeBloc>(create: (BuildContext context) => _themeBloc),
         BlocProvider<ExploreBloc>(
             create: (BuildContext context) => _exploreBloc),

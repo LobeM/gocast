@@ -2,6 +2,7 @@ import 'package:gocast/data/data_provider.dart';
 import 'package:gocast/data/models/category_model.dart';
 import 'package:gocast/data/models/data_response_model.dart';
 import 'package:gocast/data/models/podcast_model.dart';
+import 'package:gocast/data/models/search_history_model.dart';
 
 class PodcastRepository {
   const PodcastRepository({
@@ -19,6 +20,18 @@ class PodcastRepository {
     return _categories
         .map<CategoryModel>((dynamic json) =>
             CategoryModel.fromJson(json as Map<String, dynamic>))
+        .toList();
+  }
+
+  Future<List<SearchHistoryModel>> getSearchHistory() async {
+    final DataResponseModel rawData = await dataProvider.get('search_history');
+
+    final List<dynamic> _history =
+        rawData.data['search_queries'] as List<dynamic> ?? <dynamic>[];
+
+    return _history
+        .map<SearchHistoryModel>((dynamic json) =>
+            SearchHistoryModel.fromJson(json as Map<String, dynamic>))
         .toList();
   }
 
