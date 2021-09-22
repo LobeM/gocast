@@ -4,7 +4,7 @@ A podcast app built using flutter.
 
 ### Project Status
 
-This project just started and doesn't contain any UI or logic setup yet. It is an an on going project.
+This project is a demo that has firebase authentication and plays audio from a url. API integration hasnt been done yet.
 
 ### Getting Started
 
